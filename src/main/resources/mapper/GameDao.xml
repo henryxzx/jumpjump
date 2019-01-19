@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.xqy.demo.dao.GameDao">
+    <!--分十条显示-->
+    <select id="findAllLimit" resultType="pers.xqy.demo.entity.Game">
+        SELECT game_id, game_name, game_comments_num, game_content, game_type, game_publisher, game_publish_time, game_score, game_image
+        FROM game_info
+        Limit #{start}, 10
+    </select>
+
+    <select id="findByName" resultType="pers.xqy.demo.entity.Game">
+        SELECT game_id, game_name, game_comments_num, game_content, game_type_id, game_publisher_id, game_publish_time, game_score, game_image
+        FROM game_info
+        WHERE game_name=#{gameName}
+    </select>
+
+
+</mapper>
