@@ -12,7 +12,7 @@ public class Comments {
     //评论主体
     private String commentsContent;
     //评论时间
-    private Date commentTime;
+    private Date commentsTime;
     //是否推荐
     private Integer isRecommend;
 
@@ -48,12 +48,12 @@ public class Comments {
         this.commentsContent = commentsContent;
     }
 
-    public Date getCommentTime() {
-        return commentTime;
+    public Date getCommentsTime() {
+        return commentsTime;
     }
 
-    public void setCommentTime(Date commentTime) {
-        this.commentTime = commentTime;
+    public void setCommentsTime(Date commentTime) {
+        this.commentsTime = commentTime;
     }
 
     public Integer getIsRecommend() {

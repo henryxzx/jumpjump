@@ -43,6 +43,22 @@ public class GameController {
         modelMap.put("gameList", game);
         return modelMap;
     }
+    
+    /**
+     * @Author henryxzx
+     * @Description //TODO 根据游戏的发行时间排序
+     * @Date 10:34 2019-02-11
+     * @Param [page]
+     * @return java.util.Map<java.lang.String,java.lang.Object>
+     **/
+    @RequestMapping(value = "/getGameOrderByPublishTime", method = RequestMethod.GET)
+    private Map<String, Object> getGameOrderByPublishTime(String page){
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        int p = 1;
+        List<Game> list = gameService.listByPublishTime((p-1)*10);
+        modelMap.put("gameList", list);
+        return modelMap;
+    }
 
 
 

@@ -11,16 +11,36 @@ public class Game {
     private Integer gameCommentsNum;
     //游戏详情
     private String gameContent;
-    //游戏类型
+    //游戏类型Id
     private Integer gameTypeId;
-    //游戏发行商
+    //游戏类型
+    private GameType gameType;
+    //游戏发行商Id
     private Integer gamePublisherId;
+    //游戏发行商
+    private GamePublisher gamePublisher;
     //游戏发行时间
     private Date gamePublishTime;
     //游戏评分
     private Integer gameScore;
     //游戏封面
     private String gameImage;
+
+    public GameType getGameType() {
+        return gameType;
+    }
+
+    public void setGameType(GameType gameType) {
+        this.gameType = gameType;
+    }
+
+    public GamePublisher getGamePublisher() {
+        return gamePublisher;
+    }
+
+    public void setGamePublisher(GamePublisher gamePublisher) {
+        this.gamePublisher = gamePublisher;
+    }
 
     public Date getGamePublishTime() {
         return gamePublishTime;

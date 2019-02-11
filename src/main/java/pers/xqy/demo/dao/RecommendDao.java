@@ -31,4 +31,22 @@ public interface RecommendDao {
      **/
     public Integer updateStatus(int recommendId);
 
+    /**
+     * @Author henryxzx
+     * @Description //TODO 添加新的推荐
+     * @Date 13:28 2019-02-11
+     * @Param [recommend]
+     * @return java.lang.Integer
+     **/
+    public Integer insert(Recommend recommend);
+    
+    /**
+     * @Author henryxzx
+     * @Description //TODO 删除推荐
+     * @Date 13:32 2019-02-11
+     * @Param [recommendId]
+     * @return java.lang.Integer
+     **/
+    public Integer delete(int recommendId);
+
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.xqy.demo.dao.GameTypeDao">
+    <!--分十条显示-->
+    <select id="listAll" resultType="pers.xqy.demo.entity.GameType">
+        SELECT game_type_id, game_type_name, game_type_num
+        FROM game_type_info
+    </select>
+
+
+    <select id="findById" resultType="pers.xqy.demo.entity.GameType">
+        SELECT game_type_id, game_type_name, game_type_num
+        FROM game_type_info
+        WHERE game_type_id=#{gameTypeId}
+    </select>
+
+    <select id="findIdByName" resultType="pers.xqy.demo.entity.GameType">
+        SELECT game_type_id, game_type_name, game_type_num
+        FROM game_type_info
+        WHERE game_type_name=#{gameTypeName}
+    </select>
+
+
+</mapper>

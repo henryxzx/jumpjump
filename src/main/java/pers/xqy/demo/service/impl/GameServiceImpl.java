@@ -4,8 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pers.xqy.demo.dao.GameDao;
+import pers.xqy.demo.dao.GamePublisherDao;
+import pers.xqy.demo.dao.GameTypeDao;
 import pers.xqy.demo.entity.Game;
+import pers.xqy.demo.service.GamePublisherService;
 import pers.xqy.demo.service.GameService;
+import pers.xqy.demo.service.GameTypeService;
 
 import java.util.List;
 
@@ -13,7 +17,31 @@ import java.util.List;
 public class GameServiceImpl implements GameService {
     @Autowired
     private GameDao gameDao;
+    @Autowired
+    private GameTypeDao gameTypeDao;
+    @Autowired
+    private GamePublisherDao gamePublisherDao;
 
+    @Autowired
+    private GameTypeService gameTypeService;
+    @Autowired
+    private GamePublisherService gamePublisherService;
+
+    /**
+     * @Author henryxzx
+     * @Description //TODO 工具类 获取游戏类型
+     * @Date 10:36 2019-02-11
+     * @Param [listGame]
+     * @return java.util.List<pers.xqy.demo.entity.Game>
+     **/
+    private List<Game> getGames(List<Game> listGame) {
+        for (int i = 0; i < listGame.size(); i++){
+            listGame.get(i).setGamePublisher(gamePublisherDao.findById(listGame.get(i).getGamePublisherId()));
+            listGame.get(i).setGameType(gameTypeDao.findById(listGame.get(i).getGameTypeId()));
+        }
+        return listGame;
+    }
+    
     /**
      * @Author henryxzx
      * @Description //TODO 首页显示 按10条显示
@@ -24,7 +52,8 @@ public class GameServiceImpl implements GameService {
     @Transactional
     @Override
     public List<Game> findAllLimit(int start){
-        return gameDao.findAllLimit(start);
+        List<Game> listGame = gameDao.findAllLimit(start);
+        return getGames(listGame);
     }
     
     
@@ -38,17 +67,79 @@ public class GameServiceImpl implements GameService {
     @Transactional
     @Override
     public Game findByName(String gameName){
-        return gameDao.findByName(gameName);
+        Game game = gameDao.findByName(gameName);
+        game.setGamePublisher(gamePublisherDao.findById(game.getGamePublisherId()));
+        game.setGameType(gameTypeDao.findById(game.getGameTypeId()));
+        return game;
     }
-
+    
+    
+    /**
+     * @Author henryxzx
+     * @Description //TODO 根据游戏Id查找游戏
+     * @Date 17:57 2019-02-10
+     * @Param [gameId]
+     * @return pers.xqy.demo.entity.Game
+     **/
+    @Transactional
+    @Override
+    public Game findById(int gameId){
+        return gameDao.findById(gameId);
+    }
+    
+    /**
+     * @Author henryxzx
+     * @Description //TODO 根据游戏类型返回游戏信息
+     * @Date 23:16 2019-02-10
+     * @Param [gameType]
+     * @return java.util.List<pers.xqy.demo.entity.Game>
+     **/
+    @Transactional
     @Override
     public List<Game> listByType(String gameType) {
-        return null;
+        return gameDao.listByType(gameTypeService.findIdByName(gameType));
     }
 
+    /**
+     * @Author henryxzx
+     * @Description //TODO 根据游戏发行商名称返回游戏信息
+     * @Date 09:56 2019-02-11
+     * @Param [gamePublisher]
+     * @return java.util.List<pers.xqy.demo.entity.Game>
+     **/
+    @Transactional
     @Override
     public List<Game> listByPublisher(String gamePublisher) {
-        return null;
+        return gameDao.listByPublisher(gamePublisherService.findIdByName(gamePublisher));
+    }
+    
+    /**
+     * @Author henryxzx
+     * @Description //TODO 根据游戏发行时间降序排序
+     * @Date 09:57 2019-02-11
+     * @Param [start]
+     * @return java.util.List<pers.xqy.demo.entity.Game>
+     **/
+    @Transactional
+    @Override
+    public List<Game> listByPublishTime(int start) {
+        List<Game> listGame = gameDao.listByPublishTime(start);
+        return getGames(listGame);
     }
 
+    
+    /**
+     * @Author henryxzx
+     * @Description //TODO 根据游戏分数降序排序
+     * @Date 10:02 2019-02-11
+     * @Param [start]
+     * @return java.util.List<pers.xqy.demo.entity.Game>
+     **/
+    @Transactional
+    @Override
+    public List<Game> listByGameScore(int start) {
+        List<Game> listGame = gameDao.listByGameScore(start);
+        return getGames(listGame);
+    }
+    
 }

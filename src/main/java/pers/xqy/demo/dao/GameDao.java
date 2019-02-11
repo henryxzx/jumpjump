@@ -36,19 +36,19 @@ public interface GameDao {
      * @Author henryxzx
      * @Description //TODO 根据类型显示游戏
      * @Date 16:05 2019-01-18
-     * @Param [gameType]
+     * @Param [gameTypeId]
      * @return java.util.List<pers.xqy.demo.entity.Game>
      **/
-    public List<Game> listByType(String gameType);
+    public List<Game> listByType(int gameTypeId);
 
     /**
      * @Author henryxzx
      * @Description //TODO 根据发行商显示游戏
      * @Date 16:05 2019-01-18
-     * @Param [gamePublisher]
+     * @Param [gamePublisherId]
      * @return java.util.List<pers.xqy.demo.entity.Game>
      **/
-    public List<Game> listByPublisher(String gamePublisher);
+    public List<Game> listByPublisher(int gamePublisherId);
 
     /**
      * @Author henryxzx

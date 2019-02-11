@@ -18,16 +18,46 @@ public class GameServiceImplTest {
     private GameService gameService;
 
     @Test
-//    @Ignore
+    @Ignore
     public void findAllLimit() {
-        assertEquals(2, gameService.findAllLimit(0).size());
+        assertEquals(1, gameService.findAllLimit(0).size());
 //        assertEquals(gameService.findAllLimit(0).size(), 3);
     }
 
     @Test
+    @Ignore
     public void findByName() {
-        assertEquals("腾讯", gameService.findByName("测试"));
+        assertEquals("3" , gameService.findByName("好玩的").getGameId().toString());
+        assertEquals("拉萨游戏", gameService.findByName("不好玩的").getGameType().getGameTypeName());
     }
 
 
+    @Test
+    @Ignore
+    public void findById() {
+        assertEquals("好玩的", gameService.findById(3).getGameName());
+    }
+
+
+    @Test
+    @Ignore
+    public void listByType() {
+        assertEquals(2, gameService.listByType("拉萨游戏").size());
+    }
+
+    @Test
+    @Ignore
+    public void listByPublisher() {
+        assertEquals(2, gameService.listByPublisher("腾讯").size());
+    }
+
+    @Test
+    public void listByPublishTime() {
+        assertEquals("2019-02-11",gameService.listByPublishTime(0).get(0).getGamePublishTime().toString());
+    }
+
+    @Test
+    public void listByGameScore() {
+        assertEquals("10", gameService.listByGameScore(0).get(0).getGameScore().toString());
+    }
 }
