@@ -68,8 +68,23 @@ public interface GameDao {
      **/
     public List<Game> listByGameScore(int start);
 
+    /**
+     * @Author henryxzx
+     * @Description //TODO 根据游戏Id添加游戏评论数
+     * @Date 17:36 2019-02-13
+     * @Param [gameId]
+     * @return boolean
+     **/
+    public Integer addCommentsNum(int gameId);
 
     
-
+    /**
+     * @Author henryxzx
+     * @Description //TODO 根据游戏Id减少游戏评论数
+     * @Date 17:45 2019-02-13
+     * @Param [gameId]
+     * @return java.lang.Integer
+     **/
+    public Integer reduceCommentsNum(int gameId);
 
 }

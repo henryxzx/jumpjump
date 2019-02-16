@@ -49,4 +49,13 @@ public interface RecommendDao {
      **/
     public Integer delete(int recommendId);
 
+    /**
+     * @Author henryxzx
+     * @Description //TODO 列出所有未审核的推荐信息
+     * @Date 16:29 2019-02-16
+     * @Param []
+     * @return java.util.List<pers.xqy.demo.entity.Recommend>
+     **/
+    public List<Recommend> listUnauditedRecommend();
+
 }

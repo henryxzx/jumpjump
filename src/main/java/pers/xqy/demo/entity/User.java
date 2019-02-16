@@ -1,7 +1,6 @@
 package pers.xqy.demo.entity;
 
-import java.sql.Time;
-import java.sql.Timestamp;
+import java.util.Date;
 
 public class User {
     //用户Id 主键
@@ -19,23 +18,23 @@ public class User {
     //用户是否可评论 默认为1 可评论
     private Integer uCanComment;
     //用户最后登陆时间
-    private Timestamp uLastLoginTime;
+    private Date uLastLoginTime;
     //用户注册时间
-    private Timestamp uRegisterTime;
+    private Date uRegisterTime;
 
-    public Timestamp getuLastLoginTime() {
+    public Date getuLastLoginTime() {
         return uLastLoginTime;
     }
 
-    public void setuLastLoginTime(Timestamp uLastLoginTime) {
+    public void setuLastLoginTime(Date uLastLoginTime) {
         this.uLastLoginTime = uLastLoginTime;
     }
 
-    public Timestamp getuRegisterTime() {
+    public Date getuRegisterTime() {
         return uRegisterTime;
     }
 
-    public void setuRegisterTime(Timestamp uRegisterTime) {
+    public void setuRegisterTime(Date uRegisterTime) {
         this.uRegisterTime = uRegisterTime;
     }
 

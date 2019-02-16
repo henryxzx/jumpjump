@@ -24,8 +24,8 @@ public class GameController {
     @RequestMapping(value = "/initGameInfo", method = RequestMethod.GET)
     private Map<String, Object> listGameInfo(String page) {
         Map<String, Object> modelMap = new HashMap<String, Object>();
-//        int p = Integer.parseInt(page);
-        int p = 1;
+        int p = Integer.parseInt(page);
+//        int p = 1;
         List<Game> list = gameService.findAllLimit((p-1)*10);
         modelMap.put("gameList", list);
         return modelMap;
@@ -38,27 +38,76 @@ public class GameController {
     @RequestMapping(value = "/getGameByName", method = RequestMethod.GET)
     private Map<String, Object> getGameByName(String gameName){
         Map<String, Object> modelMap = new HashMap<String, Object>();
-        gameName = "测试";
+//        gameName = "测试";
         Game game = gameService.findByName(gameName);
         modelMap.put("gameList", game);
         return modelMap;
     }
-    
+
     /**
      * @Author henryxzx
-     * @Description //TODO 根据游戏的发行时间排序
-     * @Date 10:34 2019-02-11
-     * @Param [page]
+     * @Description //TODO 根据游戏类型获取游戏信息
+     * @Date 14:16 2019-02-16
+     * @Param [gameType]
      * @return java.util.Map<java.lang.String,java.lang.Object>
      **/
-    @RequestMapping(value = "/getGameOrderByPublishTime", method = RequestMethod.GET)
-    private Map<String, Object> getGameOrderByPublishTime(String page){
+    @RequestMapping(value = "/getGameByType", method = RequestMethod.GET)
+    private Map<String, Object> getGameByType(String gameType){
         Map<String, Object> modelMap = new HashMap<String, Object>();
-        int p = 1;
-        List<Game> list = gameService.listByPublishTime((p-1)*10);
+        List<Game> list = gameService.listByType(gameType);
         modelMap.put("gameList", list);
         return modelMap;
     }
+
+    /**
+     * @Author henryxzx
+     * @Description //TODO 根据游戏发行商获取游戏信息
+     * @Date 16:25 2019-02-16
+     * @Param [gamePublisher]
+     * @return java.util.Map<java.lang.String,java.lang.Object>
+     **/
+    @RequestMapping(value = "/getGameByPublisher", method = RequestMethod.GET)
+    private Map<String, Object> getGameByPublisher(String gamePublisher){
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        List<Game> list = gameService.listByPublisher(gamePublisher);
+        modelMap.put("gameList", list);
+        return modelMap;
+    }
+
+    
+    /**
+     * @Author henryxzx
+     * @Description //TODO 根据游戏发行时间获取游戏信息
+     * @Date 16:25 2019-02-16
+     * @Param [page]
+     * @return java.util.Map<java.lang.String,java.lang.Object>
+     **/
+    @RequestMapping(value = "/getGameByPublishTime", method = RequestMethod.GET)
+    private Map<String, Object> getGameByPublishTime(String page){
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        int p = Integer.parseInt(page);
+        List<Game> list = gameService.listByPublishTime(p);
+        modelMap.put("gameList", list);
+        return modelMap;
+    }
+
+    
+    /**
+     * @Author henryxzx
+     * @Description //TODO 根据游戏评分获取游戏信息
+     * @Date 16:27 2019-02-16
+     * @Param [page]
+     * @return java.util.Map<java.lang.String,java.lang.Object>
+     **/
+    @RequestMapping(value = "/getGameByScore", method = RequestMethod.GET)
+    private Map<String, Object> getGameByScore(String page){
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        int p = Integer.parseInt(page);
+        List<Game> list = gameService.listByGameScore(p);
+        modelMap.put("gameList", list);
+        return modelMap;
+    }
+
 
 
 

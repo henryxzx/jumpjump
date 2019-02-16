@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.xqy.demo.dao.UserDao">
+    <select id="listAllUser" resultType="pers.xqy.demo.entity.User">
+        select *
+        from user_info
+    </select>
+
+    <select id="checkUser" resultType="Integer">
+        select count(u_id) from user_info where u_openid=#{openId}
+    </select>
+
+    <select id="listAllUserByRegisterTime" resultType="pers.xqy.demo.entity.User">
+        select *
+        from user_info
+        order by u_registerTime
+        desc
+    </select>
+
+    <select id="listAllUserByLastLoginTime" resultType="pers.xqy.demo.entity.User">
+        select *
+        from user_info
+        order by u_lastLoginTime
+            desc
+    </select>
+
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="uId"
+            keyColumn="u_id" parameterType="pers.xqy.demo.entity.User">
+        insert into
+        user_info(u_openid, u_gender, u_nickname, u_country, u_avatarurl, u_canComment, u_lastLoginTime, u_registerTime)
+        VALUES (#{uOpenId},#{uGender},#{uNickName},#{uCountry},#{uAvatarUrl},#{uCanComment},#{uLastLoginTime},#{uRegisterTime})
+    </insert>
+
+    <update id="updateUser" parameterType="pers.xqy.demo.entity.User">
+        UPDATE user_info
+        <set>
+            <if test="uNickName!=null">u_nickname=#{uNickName},</if>
+            <if test="uAvatarUrl!=null">u_avatarurl=#{uAvatarUrl},</if>
+            <if test="uLastLoginTime!=null">u_lastLoginTime=#{uLastLoginTime},</if>
+        </set>
+        where u_openid=#{uOpenId}
+    </update>
+
+    <select id="findUserByUId" resultType="pers.xqy.demo.entity.User">
+        select *
+        from user_info
+        where u_id=#{uId}
+    </select>
+
+    <select id="findUserByOpenId" resultType="pers.xqy.demo.entity.User">
+        select *
+        from user_info
+        where u_openid=#{openId}
+    </select>
+
+    <select id="findUIdByOpenId" resultType="Integer">
+        select u_id
+        from user_info
+        where u_openid=#{openId}
+    </select>
+
+</mapper>

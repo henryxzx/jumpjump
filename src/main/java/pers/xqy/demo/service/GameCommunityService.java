@@ -1,16 +1,16 @@
-package pers.xqy.demo.dao;
+package pers.xqy.demo.service;
 
 import pers.xqy.demo.entity.GameCommunity;
 
 import java.util.List;
 
 /**
- * @program: java_project
- * @description: 游戏社区类型Dao层
+ * @program: demo
+ * @description: 游戏社区Service层
  * @author: henryxzx
- * @create: 2019-02-10 16:48
+ * @create: 2019-02-16 17:28
  **/
-public interface GameCommunityDao {
+public interface GameCommunityService {
 
     //列出所有游戏社区
     public List<GameCommunity> listAll();

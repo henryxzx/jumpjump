@@ -60,4 +60,14 @@ public class GameServiceImplTest {
     public void listByGameScore() {
         assertEquals("10", gameService.listByGameScore(0).get(0).getGameScore().toString());
     }
+
+    @Test
+    public void addCommentsNum() {
+        assertEquals(true, gameService.addCommentsNum(3));
+    }
+
+    @Test
+    public void reduceCommentsNum() {
+        assertEquals(true, gameService.reduceCommentsNum(3));
+    }
 }

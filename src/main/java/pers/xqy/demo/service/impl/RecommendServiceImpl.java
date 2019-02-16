@@ -20,12 +20,27 @@ public class RecommendServiceImpl implements RecommendService {
     @Autowired
     private RecommendDao recommendDao;
 
+    /**
+     * @Author henryxzx
+     * @Description //TODO 列出所有推荐信息
+     * @Date 14:08 2019-02-16
+     * @Param []
+     * @return java.util.List<pers.xqy.demo.entity.Recommend>
+     **/
     @Transactional
     @Override
     public List<Recommend> listAllRecommend() {
         return recommendDao.listAllRecommend();
     }
 
+    
+    /**
+     * @Author henryxzx
+     * @Description //TODO 更新推荐信息状态（审核功能）
+     * @Date 14:08 2019-02-16
+     * @Param [recommendId]
+     * @return boolean
+     **/
     @Transactional
     @Override
     public boolean updateStatus(int recommendId) {
@@ -45,6 +60,13 @@ public class RecommendServiceImpl implements RecommendService {
         }
     }
 
+    /**
+     * @Author henryxzx
+     * @Description //TODO 插入新的推荐信息
+     * @Date 14:09 2019-02-16
+     * @Param [recommend]
+     * @return boolean
+     **/
     @Transactional
     @Override
     public boolean insert(Recommend recommend) {
@@ -65,6 +87,15 @@ public class RecommendServiceImpl implements RecommendService {
 
     }
 
+    
+    /**
+     * @Author henryxzx
+     * @Description //TODO 删除推荐信息（审核不通过）
+     * @Date 14:10 2019-02-16
+     * @Param [recommendId]
+     * @return boolean
+     **/
+    @Transactional
     @Override
     public boolean delete(int recommendId) {
         if (recommendId > 0) {
@@ -82,4 +113,18 @@ public class RecommendServiceImpl implements RecommendService {
             throw new RuntimeException("Id不能为空");
         }
     }
+
+    /**
+     * @Author henryxzx
+     * @Description //TODO 列出所有未审核的游戏推荐信息
+     * @Date 16:34 2019-02-16
+     * @Param []
+     * @return java.util.List<pers.xqy.demo.entity.Recommend>
+     **/
+    @Transactional
+    @Override
+    public List<Recommend> listUnauditedRecommend() {
+        return recommendDao.listUnauditedRecommend();
+    }
+
 }

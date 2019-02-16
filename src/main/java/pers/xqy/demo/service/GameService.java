@@ -19,7 +19,9 @@ public interface GameService {
     public List<Game> listByPublishTime(int start);
     //根据游戏分数显示游戏
     public List<Game> listByGameScore(int start);
-
-
+    //根据游戏Id添加评论+1
+    public boolean addCommentsNum(int gameId);
+    //根据游戏Id减少评论-1
+    public boolean reduceCommentsNum(int gameId);
 
 }

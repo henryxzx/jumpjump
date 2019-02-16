@@ -48,4 +48,16 @@
         DESC
         Limit #{start}, 10
     </select>
+
+    <update id="addCommentsNum">
+        update game_info
+        set game_comments_num=game_comments_num+1
+        where game_id=#{gameId}
+    </update>
+    
+    <update id="reduceCommentsNum">
+        update game_info
+        set game_comments_num=game_comments_num-1
+        where game_id=#{gameId}
+    </update>
 </mapper>

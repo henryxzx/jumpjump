@@ -47,6 +47,13 @@ public class GameTypeServiceImpl implements GameTypeService {
         return gameTypeDao.findById(gameTypeId);
     }
 
+    /**
+     * @Author henryxzx
+     * @Description //TODO 根据名称获取游戏类型Id
+     * @Date 14:09 2019-02-16
+     * @Param [gameTypeName]
+     * @return java.lang.Integer
+     **/
     @Transactional
     @Override
     public Integer findIdByName(String gameTypeName) {

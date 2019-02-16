@@ -19,5 +19,6 @@ public interface RecommendService {
     public boolean insert(Recommend recommend);
     //删除推荐信息
     public boolean delete(int recommendId);
-
+    //列出所有未审核的推荐信息
+    public List<Recommend> listUnauditedRecommend();
 }

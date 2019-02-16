@@ -42,4 +42,9 @@ public class RecommendServiceImplTest {
     public void delete() {
         assertEquals(true, recommendService.delete(2));
     }
+
+    @Test
+    public void listUnauditedRecommend() {
+        assertEquals(1, recommendService.listUnauditedRecommend().size());
+    }
 }

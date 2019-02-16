@@ -27,4 +27,9 @@
             recommend_id = #{recommendId}
     </delete>
 
+    <select id="listUnauditedRecommend" resultType="pers.xqy.demo.entity.Recommend">
+        SELECT *
+        FROM recommend_info
+        WHERE status=0
+    </select>
 </mapper>

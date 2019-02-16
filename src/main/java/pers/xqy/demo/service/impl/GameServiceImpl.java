@@ -15,6 +15,7 @@ import java.util.List;
 
 @Service
 public class GameServiceImpl implements GameService {
+
     @Autowired
     private GameDao gameDao;
     @Autowired
@@ -24,12 +25,13 @@ public class GameServiceImpl implements GameService {
 
     @Autowired
     private GameTypeService gameTypeService;
+
     @Autowired
     private GamePublisherService gamePublisherService;
 
     /**
      * @Author henryxzx
-     * @Description //TODO 工具类 获取游戏类型
+     * @Description //TODO 工具类 获取游戏类型和发行商
      * @Date 10:36 2019-02-11
      * @Param [listGame]
      * @return java.util.List<pers.xqy.demo.entity.Game>
@@ -112,7 +114,7 @@ public class GameServiceImpl implements GameService {
     public List<Game> listByPublisher(String gamePublisher) {
         return gameDao.listByPublisher(gamePublisherService.findIdByName(gamePublisher));
     }
-    
+
     /**
      * @Author henryxzx
      * @Description //TODO 根据游戏发行时间降序排序
@@ -123,7 +125,8 @@ public class GameServiceImpl implements GameService {
     @Transactional
     @Override
     public List<Game> listByPublishTime(int start) {
-        List<Game> listGame = gameDao.listByPublishTime(start);
+        int p = (start-1)*10;
+        List<Game> listGame = gameDao.listByPublishTime(p);
         return getGames(listGame);
     }
 
@@ -138,8 +141,42 @@ public class GameServiceImpl implements GameService {
     @Transactional
     @Override
     public List<Game> listByGameScore(int start) {
-        List<Game> listGame = gameDao.listByGameScore(start);
+        int p = (start-1)*10;
+        List<Game> listGame = gameDao.listByGameScore(p);
         return getGames(listGame);
     }
-    
+
+    /**
+     * @Author henryxzx
+     * @Description //TODO 游戏评论数+1
+     * @Date 14:03 2019-02-16
+     * @Param [gameId]
+     * @return boolean
+     **/
+    @Transactional
+    @Override
+    public boolean addCommentsNum(int gameId) {
+        if (gameDao.addCommentsNum(gameId) > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    /**
+     * @Author henryxzx
+     * @Description //TODO 游戏评论数-1
+     * @Date 14:09 2019-02-16
+     * @Param [gameId]
+     * @return boolean
+     **/
+    @Transactional
+    @Override
+    public boolean reduceCommentsNum(int gameId) {
+        if (gameDao.reduceCommentsNum(gameId) > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
