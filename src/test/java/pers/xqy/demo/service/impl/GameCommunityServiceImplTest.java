@@ -26,4 +26,15 @@ public class GameCommunityServiceImplTest {
     public void findById() {
         assertEquals(0, gameCommunityService.findById(1).getGameCommunityPostingNum().intValue());
     }
+
+
+    @Test
+    public void findByGameId() {
+        assertEquals("zz",gameCommunityService.findByGameId(3).getGameCommunityImage());
+    }
+
+    @Test
+    public void insert() {
+
+    }
 }

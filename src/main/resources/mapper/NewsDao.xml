@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.xqy.demo.dao.NewsDao">
+    <insert id="insert" keyProperty="id"
+        keyColumn="id" parameterType="pers.xqy.demo.entity.News">
+        INSERT INTO
+        news(id, content, title, module_id)
+        VALUES(#{id},#{content},#{title},#{moduleId})
+    </insert>
+    <update id="update" parameterType="pers.xqy.demo.entity.News">
+        UPDATE news
+        <set>
+            <if test="content!=null">content=#{content},</if>
+            <if test="title!=null">title=#{title},</if>
+            <if test="moduleId!=null">module_id=#{moduleId},</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM
+        news
+        WHERE
+        id = #{id}
+    </delete>
+
+</mapper>

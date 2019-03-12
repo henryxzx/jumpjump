@@ -1,12 +1,14 @@
 package pers.xqy.demo.entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Comments {
     //评论Id
     private Integer commentsId;
     //用户Id
     private Integer uId;
+    //用户实体类
+    private User user;
     //游戏Id
     private Integer gameId;
     //评论主体
@@ -15,6 +17,14 @@ public class Comments {
     private Date commentsTime;
     //是否推荐
     private Integer isRecommend;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Integer getCommentsId() {
         return commentsId;

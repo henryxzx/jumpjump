@@ -18,4 +18,8 @@ public interface GameCommunityDao {
     //根据Id返回游戏社区信息
     public GameCommunity findById(int gameCommunityId);
 
+    //根据游戏Id返回游戏社区信息
+    public GameCommunity findByGameId(int gameId);
+    //加入新的社区
+    public Integer insert(GameCommunity gameCommunity);
 }

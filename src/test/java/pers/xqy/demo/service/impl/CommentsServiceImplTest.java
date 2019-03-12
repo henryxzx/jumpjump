@@ -8,8 +8,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import pers.xqy.demo.entity.Comments;
 import pers.xqy.demo.service.CommentsService;
 
-import java.util.Date;
-
 import static org.junit.Assert.assertEquals;
 
 
@@ -37,7 +35,7 @@ public class CommentsServiceImplTest {
         comments.setGameId(3);
         comments.setIsRecommend(1);
         comments.setuId(1);
-        comments.setCommentsTime(new Date());
+//        comments.setCommentsTime(new Date());
 //        System.out.println(new Date());
         assertEquals(true, commentsService.insert(comments));
     }

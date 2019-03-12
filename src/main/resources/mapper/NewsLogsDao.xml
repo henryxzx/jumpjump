@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.xqy.demo.dao.NewsLogsDao">
+    <select id="listAll" resultType="pers.xqy.demo.entity.NewsLogs">
+        SELECT *
+        FROM newslogs
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id"
+            keyColumn="id" parameterType="pers.xqy.demo.entity.NewsLogs">
+        INSERT into
+        newslogs(user_id, news_id, prefer_degree)
+        VALUES (#{userId},#{newsId},#{preferDegree})
+    </insert>
+
+</mapper>

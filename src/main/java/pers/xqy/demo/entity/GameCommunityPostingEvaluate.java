@@ -12,13 +12,23 @@ public class GameCommunityPostingEvaluate {
     //游戏社区帖子回复评论Id
     private Integer gameCommunityPostingEvaluateId;
     //游戏社区帖子回复评论主体
-    private String gameCommunityPostingEvaluateConetent;
+    private String gameCommunityPostingEvaluateContent;
     //游戏社区帖子回复评论人Id
     private Integer gameCommunityPostingEvaluateUid;
+    //评论人
+    private User user;
     //游戏社区帖子回复评论帖子Id
     private Integer gameCommunityPostingEvaluatePostingId;
     //游戏社区帖子回复评论时间
     private Date gameCommunityPostingEvaluateTime;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Integer getGameCommunityPostingEvaluateId() {
         return gameCommunityPostingEvaluateId;
@@ -29,11 +39,11 @@ public class GameCommunityPostingEvaluate {
     }
 
     public String getGameCommunityPostingEvaluateConetent() {
-        return gameCommunityPostingEvaluateConetent;
+        return gameCommunityPostingEvaluateContent;
     }
 
-    public void setGameCommunityPostingEvaluateConetent(String gameCommunityPostingEvaluateConetent) {
-        this.gameCommunityPostingEvaluateConetent = gameCommunityPostingEvaluateConetent;
+    public void setGameCommunityPostingEvaluateContent(String gameCommunityPostingEvaluateContent) {
+        this.gameCommunityPostingEvaluateContent = gameCommunityPostingEvaluateContent;
     }
 
     public Integer getGameCommunityPostingEvaluateUid() {

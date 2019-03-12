@@ -1,17 +1,15 @@
 package pers.xqy.demo.service.impl;
 
+import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pers.xqy.demo.dao.GameDao;
-import pers.xqy.demo.dao.GamePublisherDao;
 import pers.xqy.demo.dao.GameTypeDao;
 import pers.xqy.demo.entity.Game;
 import pers.xqy.demo.service.GamePublisherService;
 import pers.xqy.demo.service.GameService;
 import pers.xqy.demo.service.GameTypeService;
-
-import java.util.List;
 
 @Service
 public class GameServiceImpl implements GameService {
@@ -20,8 +18,8 @@ public class GameServiceImpl implements GameService {
     private GameDao gameDao;
     @Autowired
     private GameTypeDao gameTypeDao;
-    @Autowired
-    private GamePublisherDao gamePublisherDao;
+//    @Autowired
+//    private GamePublisherDao gamePublisherDao;
 
     @Autowired
     private GameTypeService gameTypeService;
@@ -36,9 +34,9 @@ public class GameServiceImpl implements GameService {
      * @Param [listGame]
      * @return java.util.List<pers.xqy.demo.entity.Game>
      **/
-    private List<Game> getGames(List<Game> listGame) {
+    private Page<Game> getGames(Page<Game> listGame) {
         for (int i = 0; i < listGame.size(); i++){
-            listGame.get(i).setGamePublisher(gamePublisherDao.findById(listGame.get(i).getGamePublisherId()));
+//            listGame.get(i).setGamePublisher(gamePublisherDao.findById(listGame.get(i).getGamePublisherId()));
             listGame.get(i).setGameType(gameTypeDao.findById(listGame.get(i).getGameTypeId()));
         }
         return listGame;
@@ -53,8 +51,8 @@ public class GameServiceImpl implements GameService {
      **/
     @Transactional
     @Override
-    public List<Game> findAllLimit(int start){
-        List<Game> listGame = gameDao.findAllLimit(start);
+    public Page<Game> findAllLimit(){
+        Page<Game> listGame = gameDao.findAllLimit();
         return getGames(listGame);
     }
     
@@ -70,8 +68,8 @@ public class GameServiceImpl implements GameService {
     @Override
     public Game findByName(String gameName){
         Game game = gameDao.findByName(gameName);
-        game.setGamePublisher(gamePublisherDao.findById(game.getGamePublisherId()));
-        game.setGameType(gameTypeDao.findById(game.getGameTypeId()));
+//        game.setGamePublisher(gamePublisherService.findById(game.getGamePublisherId()));
+        game.setGameType(gameTypeService.findById(game.getGameTypeId()));
         return game;
     }
     
@@ -86,7 +84,10 @@ public class GameServiceImpl implements GameService {
     @Transactional
     @Override
     public Game findById(int gameId){
-        return gameDao.findById(gameId);
+        Game game = gameDao.findById(gameId);
+//        game.setGamePublisher(gamePublisherDao.findById(game.getGamePublisherId()));
+        game.setGameType(gameTypeDao.findById(game.getGameTypeId()));
+        return game;
     }
     
     /**
@@ -98,8 +99,9 @@ public class GameServiceImpl implements GameService {
      **/
     @Transactional
     @Override
-    public List<Game> listByType(String gameType) {
-        return gameDao.listByType(gameTypeService.findIdByName(gameType));
+    public Page<Game> listByType(String gameType) {
+        Page<Game> listGame = gameDao.listByType(gameTypeService.findIdByName(gameType));
+        return getGames(listGame);
     }
 
     /**
@@ -109,11 +111,12 @@ public class GameServiceImpl implements GameService {
      * @Param [gamePublisher]
      * @return java.util.List<pers.xqy.demo.entity.Game>
      **/
-    @Transactional
-    @Override
-    public List<Game> listByPublisher(String gamePublisher) {
-        return gameDao.listByPublisher(gamePublisherService.findIdByName(gamePublisher));
-    }
+//    @Transactional
+//    @Override
+//    public Page<Game> listByPublisher(String gamePublisher) {
+//        Page<Game> listGame =  gameDao.listByPublisher(gamePublisherService.findIdByName(gamePublisher));
+//        return getGames(listGame);
+//    }
 
     /**
      * @Author henryxzx
@@ -124,9 +127,8 @@ public class GameServiceImpl implements GameService {
      **/
     @Transactional
     @Override
-    public List<Game> listByPublishTime(int start) {
-        int p = (start-1)*10;
-        List<Game> listGame = gameDao.listByPublishTime(p);
+    public Page<Game> listByPublishTime() {
+        Page<Game> listGame = gameDao.listByPublishTime();
         return getGames(listGame);
     }
 
@@ -140,9 +142,9 @@ public class GameServiceImpl implements GameService {
      **/
     @Transactional
     @Override
-    public List<Game> listByGameScore(int start) {
-        int p = (start-1)*10;
-        List<Game> listGame = gameDao.listByGameScore(p);
+    public Page<Game> listByGameScore() {
+//        int p = (start-1)*10;
+        Page<Game> listGame = gameDao.listByGameScore();
         return getGames(listGame);
     }
 
@@ -177,6 +179,97 @@ public class GameServiceImpl implements GameService {
             return true;
         }else{
             return false;
+        }
+    }
+
+    /**
+     * @Author henryxzx
+     * @Description //TODO 根据热度列出游戏
+     * @Date 17:06 2019-02-24
+     * @Param [start]
+     * @return java.util.List<pers.xqy.demo.entity.Game>
+     **/
+    @Transactional
+    @Override
+    public Page<Game> listByHot() {
+        return gameDao.listByHot();
+    }
+
+    /**
+     * @Author henryxzx
+     * @Description //TODO 添加新游戏
+     * @Date 14:50 2019-03-10
+     * @Param [game]
+     * @return boolean
+     **/
+    @Transactional
+    @Override
+    public boolean insert(Game game) {
+        if (game.getGameName() != null && game.getGameContent() != null) {
+            try {
+                int effectedNum = gameDao.insert(game);
+                if (effectedNum > 0) {
+                    return true;
+                } else {
+                    throw new RuntimeException("插入信息失败");
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("插入信息失败" + e.getMessage());
+            }
+        }else{
+            throw new RuntimeException("游戏信息不能为空");
+        }
+    }
+
+    /**
+     * @Author henryxzx
+     * @Description //TODO 删除游戏
+     * @Date 14:52 2019-03-10
+     * @Param [gameId]
+     * @return boolean
+     **/
+    @Transactional
+    @Override
+    public boolean delete(int gameId) {
+        if (gameId > 0) {
+            try {
+                int effectedNum = gameDao.delete(gameId);
+                if (effectedNum > 0) {
+                    return true;
+                } else {
+                    throw new RuntimeException("删除信息失败");
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("删除信息失败" + e.getMessage());
+            }
+        }else{
+            throw new RuntimeException("Id不能为空");
+        }
+    }
+
+    /**
+     * @Author henryxzx
+     * @Description //TODO 更新游戏信息
+     * @Date 14:52 2019-03-10
+     * @Param [gameId]
+     * @return boolean
+     **/
+    @Transactional
+    @Override
+    public boolean update(Game game) {
+        if (game.getGameId() > 0) {
+            try {
+                int effectedNum = gameDao.update(game);
+                if (effectedNum > 0) {
+                    return true;
+                } else {
+                    throw new RuntimeException("删除信息失败");
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("删除信息失败" + e.getMessage());
+            }
+        }else{
+            throw new RuntimeException("Id不能为空");
         }
     }
 }

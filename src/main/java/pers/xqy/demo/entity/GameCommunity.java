@@ -10,7 +10,7 @@ public class GameCommunity {
     //游戏社区Id
     private Integer gameCommunityId;
     //游戏社区对应游戏的Id
-    private String gameId;
+    private Integer gameId;
     //游戏社区图片
     private String gameCommunityImage;
     //游戏社区帖子数
@@ -32,11 +32,11 @@ public class GameCommunity {
         this.gameCommunityId = gameCommunityId;
     }
 
-    public String getGameId() {
+    public Integer getGameId() {
         return gameId;
     }
 
-    public void setGameId(String gameId) {
+    public void setGameId(Integer gameId) {
         this.gameId = gameId;
     }
 

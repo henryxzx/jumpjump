@@ -1,8 +1,7 @@
 package pers.xqy.demo.dao;
 
+import com.github.pagehelper.Page;
 import pers.xqy.demo.entity.User;
-
-import java.util.List;
 
 public interface UserDao {
     /**
@@ -13,7 +12,7 @@ public interface UserDao {
      * @return java.util.List<pers.xqy.demo.entity.User>
      **/
 
-    public List<User> listAllUser();
+    public Page<User> listAllUser();
 
 
     /**
@@ -35,7 +34,7 @@ public interface UserDao {
      * @return java.util.List<pers.xqy.demo.entity.User>
      **/
 
-    public List<User> listAllUserByRegisterTime();
+    public Page<User> listAllUserByRegisterTime();
 
 
     /**
@@ -46,7 +45,7 @@ public interface UserDao {
      * @return java.util.List<pers.xqy.demo.entity.User>
      **/
 
-    public List<User> listAllUserByLastLoginTime();
+    public Page<User> listAllUserByLastLoginTime();
 
 
     /**

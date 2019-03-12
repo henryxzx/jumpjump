@@ -1,8 +1,7 @@
 package pers.xqy.demo.service;
 
+import com.github.pagehelper.Page;
 import pers.xqy.demo.entity.User;
-
-import java.util.List;
 
 /**
  * @program: demo
@@ -19,7 +18,7 @@ public interface UserService {
      * @return java.util.List<pers.xqy.demo.entity.User>
      **/
 
-    public List<User> listAllUser();
+    public Page<User> listAllUser();
 
 
     /**
@@ -41,7 +40,7 @@ public interface UserService {
      * @return java.util.List<pers.xqy.demo.entity.User>
      **/
 
-    public List<User> listAllUserByRegisterTime();
+    public Page<User> listAllUserByRegisterTime();
 
 
     /**
@@ -52,7 +51,7 @@ public interface UserService {
      * @return java.util.List<pers.xqy.demo.entity.User>
      **/
 
-    public List<User> listAllUserByLastLoginTime();
+    public Page<User> listAllUserByLastLoginTime();
 
 
     /**

@@ -1,5 +1,6 @@
 package pers.xqy.demo.service;
 
+import com.github.pagehelper.Page;
 import pers.xqy.demo.entity.Recommend;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
  **/
 public interface RecommendService {
     //列出所有推荐信息
-    public List<Recommend> listAllRecommend();
+    public Page<Recommend> listAllRecommend();
     //更新推荐信息状态
     public boolean updateStatus(int recommendId);
     //添加推荐信息

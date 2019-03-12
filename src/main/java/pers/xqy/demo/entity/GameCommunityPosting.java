@@ -17,12 +17,22 @@ public class GameCommunityPosting {
     private String gameCommunityPostingContent;
     //游戏社区帖子发帖人Id
     private Integer gameCommunityPostingUid;
+    //游戏社区帖子发帖人
+    private User user;
     //游戏社区帖子发贴时间
     private Date gameCommunityPostingTime;
     //游戏社区帖子对应游戏社区Id
     private Integer gameCommuntiyPostingGameCommuntiyId;
     //游戏社区帖子评论数
     private Integer gameCommunityPostingEvaluateNum;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Integer getGameCommunityPostingEvaluateNum() {
         return gameCommunityPostingEvaluateNum;

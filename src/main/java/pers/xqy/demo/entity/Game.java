@@ -15,10 +15,10 @@ public class Game {
     private Integer gameTypeId;
     //游戏类型
     private GameType gameType;
-    //游戏发行商Id
-    private Integer gamePublisherId;
     //游戏发行商
-    private GamePublisher gamePublisher;
+    private String gamePublisher;
+    //游戏发行商
+//    private GamePublisher gamePublisher;
     //游戏发行时间
     private Date gamePublishTime;
     //游戏评分
@@ -34,13 +34,13 @@ public class Game {
         this.gameType = gameType;
     }
 
-    public GamePublisher getGamePublisher() {
-        return gamePublisher;
-    }
-
-    public void setGamePublisher(GamePublisher gamePublisher) {
-        this.gamePublisher = gamePublisher;
-    }
+//    public GamePublisher getGamePublisher() {
+//        return gamePublisher;
+//    }
+//
+//    public void setGamePublisher(GamePublisher gamePublisher) {
+//        this.gamePublisher = gamePublisher;
+//    }
 
     public Date getGamePublishTime() {
         return gamePublishTime;
@@ -98,12 +98,12 @@ public class Game {
         this.gameTypeId = gameTypeId;
     }
 
-    public Integer getGamePublisherId() {
-        return gamePublisherId;
+    public String getGamePublisher() {
+        return gamePublisher;
     }
 
-    public void setGamePublisherId(Integer gamePublisherId) {
-        this.gamePublisherId = gamePublisherId;
+    public void setGamePublisher(String gamePublisher) {
+        this.gamePublisher = gamePublisher;
     }
 
     public Integer getGameScore() {

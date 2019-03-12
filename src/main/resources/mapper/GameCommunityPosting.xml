@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.xqy.demo.dao.GameCommunityPostingDao">
+    <select id="listAllById" resultType="pers.xqy.demo.entity.GameCommunityPosting">
+        SELECT *
+        from game_community_posting
+        WHERE game_community_posting_game_community_id=#{gameCommunityId}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="gameCommunityPostingId"
+            keyColumn="game_community_posting_id" parameterType="pers.xqy.demo.entity.GameCommunityPosting">
+        INSERT INTO
+            game_community_posting(game_community_posting_title,game_community_posting_content,game_community_posting_uid,game_community_posting_time, game_community_posting_game_community_id, game_community_posting_evaluate_num)
+        VALUES(#{gameCommunityPostingTitle},#{gameCommunityPostingContent},#{gameCommunityPostingUid},#{gameCommunityPostingTime},#{gameCommuntiyPostingGameCommuntiyId},#{gameCommunityPostingEvaluateNum})
+
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM game_community_posting
+        where game_community_posting_id=#{gameCommunityPostingId}
+    </delete>
+
+    <update id="addEvaluateNum">
+        UPDATE game_community_posting
+        set game_community_posting_evaluate_num=game_community_posting_evaluate_num+1
+        where game_community_posting_id=#{gameCommunityPostingId}
+    </update>
+
+
+    <update id="reduceEvaluateNum">
+        UPDATE game_community_posting
+        set game_community_posting_evaluate_num=game_community_posting_evaluate_num-1
+        where game_community_posting_id=#{gameCommunityPostingId}
+    </update>
+
+
+    <select id="findById" resultType="pers.xqy.demo.entity.GameCommunityPosting">
+        SELECT *
+        from game_community_posting
+        WHERE game_community_posting_id=#{gameCommunityPostingId}
+    </select>
+
+</mapper>

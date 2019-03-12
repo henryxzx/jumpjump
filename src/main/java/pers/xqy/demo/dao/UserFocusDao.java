@@ -7,4 +7,7 @@ package pers.xqy.demo.dao;
  * @create: 2019-02-10 16:50
  **/
 public interface UserFocusDao {
+
+    public Integer focus(int uid, int gameCommunityId);
+
 }

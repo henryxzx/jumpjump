@@ -1,5 +1,6 @@
 package pers.xqy.demo.service.impl;
 
+import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,7 +30,7 @@ public class RecommendServiceImpl implements RecommendService {
      **/
     @Transactional
     @Override
-    public List<Recommend> listAllRecommend() {
+    public Page<Recommend> listAllRecommend() {
         return recommendDao.listAllRecommend();
     }
 

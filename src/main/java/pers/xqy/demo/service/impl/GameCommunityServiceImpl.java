@@ -32,4 +32,29 @@ public class GameCommunityServiceImpl implements GameCommunityService {
     public GameCommunity findById(int gameCommunityId) {
         return gameCommunityDao.findById(gameCommunityId);
     }
+
+    @Transactional
+    @Override
+    public GameCommunity findByGameId(int gameId) {
+        return gameCommunityDao.findByGameId(gameId);
+    }
+
+    @Transactional
+    @Override
+    public boolean insert(GameCommunity gameCommunity) {
+        if (gameCommunity.getGameCommunityImage() != null && gameCommunity.getGameId() != null) {
+            try {
+                int effectedNum = gameCommunityDao.insert(gameCommunity);
+                if (effectedNum > 0) {
+                    return true;
+                } else {
+                    throw new RuntimeException("插入信息失败");
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("插入信息失败" + e.getMessage());
+            }
+        }else{
+            throw new RuntimeException("游戏社区信息不能为空");
+        }
+    }
 }

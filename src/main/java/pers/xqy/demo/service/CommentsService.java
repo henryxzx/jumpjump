@@ -1,8 +1,7 @@
 package pers.xqy.demo.service;
 
+import com.github.pagehelper.Page;
 import pers.xqy.demo.entity.Comments;
-
-import java.util.List;
 
 /**
  * @program: demo
@@ -19,7 +18,7 @@ public interface CommentsService {
      * @Param [gameId]
      * @return java.util.List<pers.xqy.demo.entity.Comments>
      **/
-    public List<Comments> listByGameId(int gameId);
+    public Page<Comments> listByGameId(int gameId);
 
 
     /**
@@ -29,7 +28,7 @@ public interface CommentsService {
      * @Param [uId]
      * @return java.util.List<pers.xqy.demo.entity.Comments>
      **/
-    public List<Comments> findByUId(int uId);
+    public Page<Comments> findByUId(int uId);
 
 
     /**

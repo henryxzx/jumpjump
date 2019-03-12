@@ -1,8 +1,7 @@
 package pers.xqy.demo.dao;
 
+import com.github.pagehelper.Page;
 import pers.xqy.demo.entity.Game;
-
-import java.util.List;
 
 public interface GameDao {
     /**
@@ -12,7 +11,7 @@ public interface GameDao {
      * @Param [start]
      * @return java.util.List<pers.xqy.demo.entity.Game>
      **/
-    public List<Game> findAllLimit(int start);
+    public Page<Game> findAllLimit();
     
     /**
      * @Author henryxzx
@@ -39,7 +38,7 @@ public interface GameDao {
      * @Param [gameTypeId]
      * @return java.util.List<pers.xqy.demo.entity.Game>
      **/
-    public List<Game> listByType(int gameTypeId);
+    public Page<Game> listByType(int gameTypeId);
 
     /**
      * @Author henryxzx
@@ -48,7 +47,7 @@ public interface GameDao {
      * @Param [gamePublisherId]
      * @return java.util.List<pers.xqy.demo.entity.Game>
      **/
-    public List<Game> listByPublisher(int gamePublisherId);
+    public Page<Game> listByPublisher(int gamePublisherId);
 
     /**
      * @Author henryxzx
@@ -57,7 +56,7 @@ public interface GameDao {
      * @Param [start]
      * @return java.util.List<pers.xqy.demo.entity.Game>
      **/
-    public List<Game> listByPublishTime(int start);
+    public Page<Game> listByPublishTime();
 
     /**
      * @Author henryxzx
@@ -66,7 +65,7 @@ public interface GameDao {
      * @Param [start]
      * @return java.util.List<pers.xqy.demo.entity.Game>
      **/
-    public List<Game> listByGameScore(int start);
+    public Page<Game> listByGameScore();
 
     /**
      * @Author henryxzx
@@ -86,5 +85,43 @@ public interface GameDao {
      * @return java.lang.Integer
      **/
     public Integer reduceCommentsNum(int gameId);
+
+
+    /**
+     * @Author henryxzx
+     * @Description //TODO 根据游戏热度显示游戏（按照评论和评分
+     * @Date 14:51 2019-02-24
+     * @Param [start]
+     * @return java.util.List<pers.xqy.demo.entity.Game>
+     **/
+    public Page<Game> listByHot();
+
+    /**
+     * @Author henryxzx
+     * @Description //TODO 添加新游戏
+     * @Date 14:18 2019-03-10
+     * @Param [game]
+     * @return java.lang.Integer
+     **/
+    public Integer insert(Game game);
+
+    /**
+     * @Author henryxzx
+     * @Description //TODO 删除游戏
+     * @Date 14:19 2019-03-10
+     * @Param [gameId]
+     * @return java.lang.Integer
+     **/
+    public Integer delete(int gameId);
+
+    /**
+     * @Author henryxzx
+     * @Description //TODO 修改游戏信息
+     * @Date 14:20 2019-03-10
+     * @Param [gameId]
+     * @return java.lang.Integer
+     **/
+    public Integer update(Game game);
+
 
 }

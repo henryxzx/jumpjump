@@ -13,4 +13,17 @@
         WHERE game_community_id=#{gameCommunityId}
     </select>
 
+    <select id="findByGameId" resultType="pers.xqy.demo.entity.GameCommunity">
+        SELECT *
+        FROM game_community
+        WHERE game_id=#{gameId}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="gameCommunityId"
+            keyColumn="game_community_id" parameterType="pers.xqy.demo.entity.GameCommunity">
+        INSERT INTO
+            game_community(game_community_image,game_id)
+        VALUES(#{game_community_image},#{gameId})
+    </insert>
+
 </mapper>

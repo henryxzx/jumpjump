@@ -1,14 +1,15 @@
 package pers.xqy.demo.service.impl;
 
+import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pers.xqy.demo.dao.CommentsDao;
+import pers.xqy.demo.dao.UserDao;
 import pers.xqy.demo.entity.Comments;
 import pers.xqy.demo.service.CommentsService;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * @program: demo
@@ -22,6 +23,9 @@ public class CommentsServiceImpl implements CommentsService {
     @Autowired
     private CommentsDao commentsDao;
 
+    @Autowired
+    private UserDao userDao;
+
     /**
      * @Author henryxzx
      * @Description //TODO 根据游戏Id找出所有的评论
@@ -31,8 +35,12 @@ public class CommentsServiceImpl implements CommentsService {
      **/
     @Transactional
     @Override
-    public List<Comments> listByGameId(int gameId) {
-        return commentsDao.listByGameId(gameId);
+    public Page<Comments> listByGameId(int gameId) {
+        Page<Comments> list = commentsDao.listByGameId(gameId);
+        for (int i = 0; i < list.size();i++){
+            list.get(i).setUser(userDao.findUserByUId(list.get(i).getuId()));
+        }
+        return list;
     }
 
     /**
@@ -44,7 +52,7 @@ public class CommentsServiceImpl implements CommentsService {
      **/
     @Transactional
     @Override
-    public List<Comments> findByUId(int uId) {
+    public Page<Comments> findByUId(int uId) {
         return commentsDao.findByUId(uId);
     }
 
@@ -59,7 +67,7 @@ public class CommentsServiceImpl implements CommentsService {
     @Override
     public boolean insert(Comments comments) {
         if (comments.getCommentsContent() != null) {
-            comments.setCommentsTime(new Date());
+            comments.setCommentsTime(new java.sql.Date(new Date().getTime()));
 //            System.out.println(new Date());
             try {
                 int effectedNum = commentsDao.insert(comments);

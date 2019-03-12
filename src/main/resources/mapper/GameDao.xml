@@ -4,49 +4,46 @@
 <mapper namespace="pers.xqy.demo.dao.GameDao">
     <!--分十条显示-->
     <select id="findAllLimit" resultType="pers.xqy.demo.entity.Game">
-        SELECT game_id, game_name, game_comments_num, game_content, game_type_id, game_publisher_id, game_publish_time, game_score, game_image
+        SELECT game_id, game_name, game_comments_num, game_content, game_type_id, game_publisher, game_publish_time, game_score, game_image
         FROM game_info
-        Limit #{start}, 10
     </select>
 
     <select id="findByName" resultType="pers.xqy.demo.entity.Game">
-        SELECT game_id, game_name, game_comments_num, game_content, game_type_id, game_publisher_id, game_publish_time, game_score, game_image
+        SELECT game_id, game_name, game_comments_num, game_content, game_type_id, game_publisher, game_publish_time, game_score, game_image
         FROM game_info
         WHERE game_name=#{gameName}
     </select>
 
     <select id="findById" resultType="pers.xqy.demo.entity.Game">
-        SELECT game_id, game_name, game_comments_num, game_content, game_type_id, game_publisher_id, game_publish_time, game_score, game_image
+        SELECT game_id, game_name, game_comments_num, game_content, game_type_id, game_publisher, game_publish_time, game_score, game_image
         FROM game_info
         WHERE game_id=#{gameId}
     </select>
 
     <select id="listByType" resultType="pers.xqy.demo.entity.Game">
-        SELECT game_id, game_name, game_comments_num, game_content, game_type_id, game_publisher_id, game_publish_time, game_score, game_image
+        SELECT game_id, game_name, game_comments_num, game_content, game_type_id, game_publisher, game_publish_time, game_score, game_image
         FROM game_info
         WHERE game_type_id=#{gameTypeId}
     </select>
 
-    <select id="listByPublisher" resultType="pers.xqy.demo.entity.Game">
-        SELECT game_id, game_name, game_comments_num, game_content, game_type_id, game_publisher_id, game_publish_time, game_score, game_image
-        FROM game_info
-        WHERE game_publisher_id=#{gamePublisherId}
-    </select>
+    <!--<select id="listByPublisher" resultType="pers.xqy.demo.entity.Game">-->
+        <!--SELECT game_id, game_name, game_comments_num, game_content, game_type_id, game_publisher_id, game_publish_time, game_score, game_image-->
+        <!--FROM game_info-->
+        <!--WHERE game_publisher_id=#{gamePublisherId}-->
+    <!--</select>-->
 
     <select id="listByPublishTime" resultType="pers.xqy.demo.entity.Game">
-        SELECT game_id, game_name, game_comments_num, game_content, game_type_id, game_publisher_id, game_publish_time, game_score, game_image
+        SELECT game_id, game_name, game_comments_num, game_content, game_type_id, game_publisher, game_publish_time, game_score, game_image
         FROM game_info
         ORDER BY game_publish_time
         DESC
-        Limit #{start}, 10
     </select>
 
     <select id="listByGameScore" resultType="pers.xqy.demo.entity.Game">
-        SELECT game_id, game_name, game_comments_num, game_content, game_type_id, game_publisher_id, game_publish_time, game_score, game_image
+        SELECT game_id, game_name, game_comments_num, game_content, game_type_id, game_publisher, game_publish_time, game_score, game_image
         FROM game_info
         ORDER BY game_score
         DESC
-        Limit #{start}, 10
     </select>
 
     <update id="addCommentsNum">
@@ -60,4 +57,40 @@
         set game_comments_num=game_comments_num-1
         where game_id=#{gameId}
     </update>
+
+    <select id="listByHot" resultType="pers.xqy.demo.entity.Game">
+        SELECT *
+        FROM game_info
+        order by game_score desc, game_comments_num desc
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="gameId"
+            keyColumn="game_id" parameterType="pers.xqy.demo.entity.Game">
+        INSERT INTO
+            game_info(game_name, game_content, game_type_id, game_publisher, game_publish_time, game_score, game_image)
+        VALUES(#{gameName},#{gameContent},#{gameTypeId},#{gamePublisher},#{gamePublishTime},#{gameScore},#{gameImage})
+    </insert>
+
+    <update id="update" parameterType="pers.xqy.demo.entity.Game">
+        UPDATE game_info
+        <set>
+            <if test="gameName!=null">game_name=#{gameName},</if>
+            <if test="gameContent!=null">game_content=#{gameContent},</if>
+            <if test="gameTypeId!=null">game_type_id=#{gameTypeId},</if>
+            <if test="gamePublisher!=null">game_publisher=#{gamePublisher},</if>
+            <if test="gamePublishTime!=null">game_publish_time=#{gamePublishTime},</if>
+            <if test="gameScore!=null">game_score=#{gameScore},</if>
+            <if test="gameImage!=null">game_image=#{gameImage},</if>
+        </set>
+        where game_id=#{gameId}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM
+            game_info
+        WHERE
+            game_id = #{gameId}
+    </delete>
+
+
 </mapper>

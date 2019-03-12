@@ -1,5 +1,6 @@
 package pers.xqy.demo.dao;
 
+import com.github.pagehelper.Page;
 import pers.xqy.demo.entity.Recommend;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public interface RecommendDao {
      * @Param []
      * @return java.util.List<pers.xqy.demo.entity.Recommend>
      **/
-    public List<Recommend> listAllRecommend();
+    public Page<Recommend> listAllRecommend();
 
 
     /**

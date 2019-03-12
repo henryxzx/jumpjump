@@ -38,6 +38,8 @@
             <if test="uNickName!=null">u_nickname=#{uNickName},</if>
             <if test="uAvatarUrl!=null">u_avatarurl=#{uAvatarUrl},</if>
             <if test="uLastLoginTime!=null">u_lastLoginTime=#{uLastLoginTime},</if>
+            <if test="uGender!=null">u_gender=#{uGender},</if>
+            <if test="uCountry!=null">u_country=#{uCountry},</if>
         </set>
         where u_openid=#{uOpenId}
     </update>

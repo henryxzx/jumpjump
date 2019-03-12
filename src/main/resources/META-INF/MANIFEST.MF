@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Class-Path: log4j-api-2.11.1.jar spring-jcl-5.1.2.RELEASE.jar spring-e
+ xpression-5.1.2.RELEASE.jar jul-to-slf4j-1.7.25.jar log4j-to-slf4j-2.
+ 11.1.jar spring-boot-starter-jdbc-2.1.0.RELEASE.jar spring-web-5.1.2.
+ RELEASE.jar jackson-annotations-2.9.0.jar hibernate-validator-6.0.13.
+ Final.jar jsqlparser-1.0.jar spring-context-5.1.2.RELEASE.jar javax.a
+ nnotation-api-1.3.2.jar validation-api-2.0.1.Final.jar spring-boot-st
+ arter-web-2.1.0.RELEASE.jar HikariCP-3.2.0.jar jackson-databind-2.9.7
+ .jar tomcat-embed-el-9.0.12.jar spring-aop-5.1.2.RELEASE.jar mybatis-
+ spring-boot-autoconfigure-1.3.2.jar mchange-commons-java-0.2.11.jar m
+ ybatis-spring-1.3.2.jar ansj_seg-5.1.6.jar pagehelper-spring-boot-sta
+ rter-1.2.5.jar mybatis-3.4.6.jar fastjson-1.2.28.jar nlp-lang-1.7.7.j
+ ar logback-core-1.2.3.jar jboss-logging-3.3.2.Final.jar commons-codec
+ -1.11.jar snakeyaml-1.23.jar spring-boot-2.1.0.RELEASE.jar mybatis-sp
+ ring-boot-starter-1.3.2.jar spring-webmvc-5.1.2.RELEASE.jar pagehelpe
+ r-spring-boot-autoconfigure-1.2.5.jar c3p0-0.9.5.2.jar spring-boot-st
+ arter-tomcat-2.1.0.RELEASE.jar spring-boot-starter-json-2.1.0.RELEASE
+ .jar slf4j-api-1.7.25.jar jackson-core-2.9.7.jar spring-tx-5.1.2.RELE
+ ASE.jar spring-core-5.1.2.RELEASE.jar classmate-1.4.0.jar spring-jdbc
+ -5.1.2.RELEASE.jar spring-boot-starter-2.1.0.RELEASE.jar spring-beans
+ -5.1.2.RELEASE.jar jackson-datatype-jsr310-2.9.7.jar jackson-module-p
+ arameter-names-2.9.7.jar httpcore-4.4.6.jar jackson-datatype-jdk8-2.9
+ .7.jar tomcat-embed-core-9.0.12.jar mysql-connector-java-8.0.13.jar l
+ ogback-classic-1.2.3.jar tomcat-embed-websocket-9.0.12.jar spring-boo
+ t-autoconfigure-2.1.0.RELEASE.jar pagehelper-5.1.4.jar spring-boot-st
+ arter-logging-2.1.0.RELEASE.jar httpclient-4.5.3.jar
+Main-Class: pers.xqy.demo.DemoApplication
+

@@ -1,5 +1,6 @@
 package pers.xqy.demo.service.impl;
 
+import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,7 +9,6 @@ import pers.xqy.demo.entity.User;
 import pers.xqy.demo.service.UserService;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * @program: demo
@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
      **/
     @Transactional
     @Override
-    public List<User> listAllUser() {
+    public Page<User> listAllUser() {
         return userDao.listAllUser();
     }
 
@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
      **/
     @Transactional
     @Override
-    public List<User> listAllUserByRegisterTime() {
+    public Page<User> listAllUserByRegisterTime() {
         return userDao.listAllUserByRegisterTime();
     }
 
@@ -77,7 +77,7 @@ public class UserServiceImpl implements UserService {
      **/
     @Transactional
     @Override
-    public List<User> listAllUserByLastLoginTime() {
+    public Page<User> listAllUserByLastLoginTime() {
         return userDao.listAllUserByLastLoginTime();
     }
 
