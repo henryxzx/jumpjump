@@ -1,14 +1,18 @@
 package pers.xqy.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import pers.xqy.demo.entity.NewsLogs;
+import pers.xqy.demo.entity.User;
+import pers.xqy.demo.service.NewsLogsService;
 import pers.xqy.demo.service.UserService;
 import pers.xqy.demo.utils.HttpRequestUtil;
-import pers.xqy.demo.entity.User;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -29,6 +33,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    public NewsLogsService newsLogsService;
     /**
      * @Author henryxzx
      * @Description //TODO 微信小程序登录注册功能。
@@ -113,7 +119,31 @@ public class UserController {
         return modelMap;
     }
 
+    @RequestMapping(value = "/listAllUserByRegisterTime", method = RequestMethod.GET)
+    public PageInfo<User> listAllUserByRegisterTime(@RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int pageSize){
+        PageHelper.startPage(pageNo,pageSize);
+        PageInfo<User> pageInfo = new PageInfo<>(userService.listAllUserByRegisterTime());
+        return pageInfo;
+    }
 
+    @RequestMapping(value = "/listAllUserByLastLoginTime", method = RequestMethod.GET)
+    public PageInfo<User> listAllUserByLastLoginTime(@RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int pageSize){
+        PageHelper.startPage(pageNo, pageSize);
+        PageInfo<User> pageInfo = new PageInfo<>(userService.listAllUserByLastLoginTime());
+        return pageInfo;
+    }
 
-
+    @RequestMapping(value = "/insert", method = RequestMethod.GET)
+    public Map<String, Object> insert(@RequestParam(value = "gameId") int gameId, @RequestParam(value = "uId")int uId){
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        NewsLogs newsLogs = new NewsLogs();
+        newsLogs.setNewsId(gameId);
+        newsLogs.setUserId(uId);
+        if(newsLogsService.insert(newsLogs) == true){
+            modelMap.put("success", "插入记录成功！");
+        }else {
+            modelMap.put("errMsg", "插入记录失败！");
+        }
+        return modelMap;
+    }
 }

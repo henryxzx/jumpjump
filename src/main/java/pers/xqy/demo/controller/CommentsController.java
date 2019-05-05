@@ -31,7 +31,7 @@ public class CommentsController {
     private GameService gameService;
 
     @RequestMapping(value = "/listByGameId", method = RequestMethod.GET)
-    private PageInfo<Comments> listByGameId(@RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int pageSize,String gameId){
+    public PageInfo<Comments> listByGameId(@RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int pageSize,String gameId){
         int id = Integer.parseInt(gameId);
         PageHelper.startPage(pageNo,pageSize);
         PageInfo<Comments> pageInfo = new PageInfo<>(commentsService.listByGameId(id));
@@ -39,7 +39,7 @@ public class CommentsController {
     }
 
     @RequestMapping(value = "/addComments", method = RequestMethod.POST)
-    private Map<String, Object> addComments(@RequestParam(value = "uId") int uId, @RequestParam(value = "content") String content, @RequestParam(value = "gameId")int gameId, @RequestParam(value = "isRecommend")int isRecommend){
+    public Map<String, Object> addComments(@RequestParam(value = "uId") int uId, @RequestParam(value = "content") String content, @RequestParam(value = "gameId")int gameId, @RequestParam(value = "isRecommend")int isRecommend){
         Map<String, Object> modelMap = new HashMap<String, Object>();
         Comments comments = new Comments();
         comments.setuId(uId);
@@ -55,4 +55,21 @@ public class CommentsController {
         return modelMap;
     }
 
+    @RequestMapping(value = "/listByUId", method = RequestMethod.GET)
+    public Map<String, Object> listByUId(int uId){
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        modelMap.put("list", commentsService.findByUId(uId));
+        return modelMap;
+    }
+
+    @RequestMapping(value = "/deleteComments", method = RequestMethod.GET)
+    public Map<String, Object> deleteComments(int commentsId) {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        if (commentsService.delete(commentsId) == true) {
+            modelMap.put("success", "删除成功");
+        } else {
+            modelMap.put("errMsg", "删除失败");
+        }
+        return modelMap;
+    }
 }

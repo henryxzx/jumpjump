@@ -4,10 +4,10 @@ import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pers.xqy.demo.dao.GameDao;
 import pers.xqy.demo.dao.RecommendationsDao;
 import pers.xqy.demo.dao.UserDao;
 import pers.xqy.demo.entity.Recommendations;
+import pers.xqy.demo.service.GameService;
 import pers.xqy.demo.service.RecommendationsService;
 
 /**
@@ -23,7 +23,7 @@ public class RecommendationsServiceImpl implements RecommendationsService {
     @Autowired
     private UserDao userDao;
     @Autowired
-    private GameDao gameDao;
+    private GameService gameService;
 
     @Transactional
     @Override
@@ -31,7 +31,7 @@ public class RecommendationsServiceImpl implements RecommendationsService {
         Page<Recommendations> list = recommendationsDao.listById(userId);
         for (int i = 0;i < list.size();i++){
             list.get(i).setUser(userDao.findUserByUId(userId));
-            list.get(i).setGame(gameDao.findById(list.get(i).getNewsId()));
+            list.get(i).setGame(gameService.findById(list.get(i).getNewsId()));
         }
         return list;
     }

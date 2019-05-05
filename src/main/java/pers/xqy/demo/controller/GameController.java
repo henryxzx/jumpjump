@@ -167,6 +167,17 @@ public class GameController {
 
 
 
+    @RequestMapping(value = "/deleteGame", method = RequestMethod.GET)
+    private Map<String, Object> deleteGame(String gameId){
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        int id = Integer.parseInt(gameId);
+        if(gameService.delete(id) == true){
+            modelMap.put("success", "删除成功！");
+        }else {
+            modelMap.put("errMsg", "删除失败！");
+        }
+        return modelMap;
+    }
 
 
 

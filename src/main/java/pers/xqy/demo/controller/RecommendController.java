@@ -8,7 +8,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pers.xqy.demo.entity.Recommend;
+import pers.xqy.demo.entity.Recommendations;
 import pers.xqy.demo.service.RecommendService;
+import pers.xqy.demo.service.RecommendationsService;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @program: demo
@@ -22,6 +28,9 @@ import pers.xqy.demo.service.RecommendService;
 public class RecommendController {
     @Autowired
     private RecommendService recommendService;
+
+    @Autowired
+    private RecommendationsService recommendationsService;
 
     /**
      * @Author henryxzx
@@ -40,7 +49,7 @@ public class RecommendController {
 //    }
 
     @RequestMapping(value = "/listAllRecommend", method = RequestMethod.GET)
-    private PageInfo<Recommend> listAllRecommend(@RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "2") int pageSize){
+    private PageInfo<Recommend> listAllRecommend(@RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int pageSize){
 //        Map<String, Object> modelMap = new HashMap<String, Object>();
         PageHelper.startPage(pageNo,pageSize);
         PageInfo<Recommend> pageInfo = new PageInfo<>(recommendService.listAllRecommend());
@@ -48,4 +57,14 @@ public class RecommendController {
     }
 
 
+    @RequestMapping(value = "/listById", method = RequestMethod.GET)
+    public Map<String, Object> listById(int uId){
+//        PageHelper.startPage(pageNo, pageSize);
+//        PageInfo<Recommendations> pageInfo = new PageInfo<>(recommendationsService.listById(uId));
+//        return pageInfo;
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        List<Recommendations> list = recommendationsService.listById(uId);
+        modelMap.put("List", list);
+        return modelMap;
+    }
 }

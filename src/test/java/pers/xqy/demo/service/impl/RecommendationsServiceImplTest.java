@@ -18,6 +18,6 @@ public class RecommendationsServiceImplTest {
 
     @Test
     public void listById() {
-        assertEquals(1, recommendationsService.listById(1).size());
+        assertEquals(5, recommendationsService.listById(4).size());
     }
 }

@@ -103,5 +103,28 @@ public class GameCommunityController {
         return modelMap;
     }
 
+    @RequestMapping(value = "/deletePosting", method = RequestMethod.GET)
+    public Map<String, Object> deletePosting(int postingId){
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        if(gameCommunityPostingService.delete(postingId) == true){
+            modelMap.put("success", "删除成功！");
+        }else {
+            modelMap.put("errMsg", "删除失败！");
+        }
+        return modelMap;
+    }
+
+    @RequestMapping(value = "/deletePostingEvaluate", method = RequestMethod.GET)
+    public Map<String, Object> deletePostingEvaluate(int evaluateId){
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        if(gameCommunityPostingEvaluateService.delete(evaluateId) == true){
+            modelMap.put("success", "删除成功！");
+        }else {
+            modelMap.put("errMsg", "删除失败！");
+        }
+        return modelMap;
+    }
+
+
 
 }

@@ -23,7 +23,7 @@
             keyColumn="game_community_id" parameterType="pers.xqy.demo.entity.GameCommunity">
         INSERT INTO
             game_community(game_community_image,game_id)
-        VALUES(#{game_community_image},#{gameId})
+        VALUES(#{gameCommunityImage},#{gameId})
     </insert>
 
 </mapper>

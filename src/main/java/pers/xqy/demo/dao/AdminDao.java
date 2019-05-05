@@ -1,6 +1,7 @@
 package pers.xqy.demo.dao;
 
 import pers.xqy.demo.entity.Admin;
+import pers.xqy.demo.entity.RotationChart;
 
 import java.util.List;
 
@@ -19,6 +20,12 @@ public interface AdminDao {
      * @return java.util.List<pers.xqy.demo.entity.Admin>
      **/
     public List<Admin> listAll();
+
+    public List<RotationChart> listAllRotationChart();
+
+    public Integer insertRotationChart(RotationChart rotationChart);
+
+    public Integer deleteRotationChart(int id);
 
 
 }
