@@ -48,9 +48,9 @@ public class UserController {
 //        System.out.println(userInfo);
         Map<String, Object> modelMap = new HashMap<String, Object>();
 
-        String APPID = "wxe441ec2425d06167";
+        String APPID = "";
         String js_code = code;
-        String secret = "ff0df6f9400b322d357307c3079b1de9";
+        String secret = "";
         String url = "https://api.weixin.qq.com/sns/jscode2session?" + "appid="+ APPID + "&secret=" + secret + "&js_code=" + js_code + "&grant_type=authorization_code";
         //获取到返回的openid和sessionId
         String result = HttpRequestUtil.get(url);
