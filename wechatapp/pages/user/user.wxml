@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"> 登录 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <!-- <button type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+    登录
+  </button> -->
+
+<view class='info-block'>
+  <view class='comments'>
+  <text>游戏评测</text>
+  <text>100</text>
+  </view>
+  <view class='posting'>
+  <text>帖子数</text>
+  <text>100</text>
+  </view>
+</view>
+</view>

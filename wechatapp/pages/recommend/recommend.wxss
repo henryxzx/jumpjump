@@ -1,0 +1,116 @@
+page {
+  height: 100%;
+}
+
+.container {
+  background: #f9f9f9;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.search {
+  height: 88rpx;
+  width: 100%;
+  padding: 0 30rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.search .input {
+  width: 690rpx;
+  height: 56rpx;
+  background: #ededed;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search .icon {
+  background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/search2-2fb94833aa.png) center no-repeat;
+  background-size: 100%;
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.search .txt {
+  height: 42rpx;
+  line-height: 42rpx;
+  color: #666;
+  padding-left: 10rpx;
+  font-size: 30rpx;
+}
+
+/* 分隔线--底部 */
+.line{
+    width: 90%;    /* 分隔线的长度 */
+    margin: auto;
+    height: 1px;    /* 分隔线粗细 */
+    text-align: center;
+    font-size: 24rpx;
+    color: #aaa;
+    background: #ccc;
+    margin-top: 5px;
+    margin-bottom: 22px;
+}
+.line span{
+    position: relative;
+    top: -8px;
+    /* background: #fff; */
+    padding: 0px 10px;
+}
+.flex-wrp {display: flex;background-color: ghostwhite}
+
+.flex-item{
+  width: 100%;
+  margin-top: 10px;
+}
+.game-block {display:flex;flex-direction:row;background:white;
+ width:100%;
+ height: 100px;margin-top: 10px;}
+
+.image-block {
+  display:flex;
+  flex-direction:row;
+  background:white;
+  width:100%;
+  height: 100px;
+  margin-top: 5px;
+}
+.top{
+  position:fixed; top:0;width: 750rpx;
+}
+.game-image{
+  height: 175rpx;
+  width: 190rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.game-text-title{
+  float: right;
+  font-size: 30rpx;
+  font-weight: bold;
+  /* margin-left: 30rpx; */
+  width : 400rpx;
+  margin-top: 20rpx;
+}
+
+.game-text-score{
+  font-size: 30rpx;
+  font-weight: bold;
+  text-align:right;
+  float: right;
+  margin-top: 20rpx;
+}
+.game-text-content{
+  font-size: 25rpx;
+  /* word-wrap:break-word; */
+  word-break: normal;
+}
+
+.game-text-rate {
+  width: 30%;
+}

@@ -1,0 +1,80 @@
+.game-comments{
+  display: flex;
+}
+.game-comments-top{
+  /* flex: auto; */
+  margin-top: 30rpx;
+  
+}
+.game-comments-block{
+  /* margin-top: 10rpx; */
+  margin-bottom: 20rpx;
+
+}
+
+.game-info-text{
+  /* font-size: 50rpx; */
+  font-weight: bold;
+}
+
+.game-comments-recommend{
+  display: flex;
+  margin-bottom: 30rpx;
+}
+.game-comments-avatar{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius : 50%;
+  margin-right: 20rpx;
+}
+.game-comments-name{
+  display: flex;
+  flex-direction:column;
+  font-size: 10rpx;
+}
+
+.game-comments-time{
+  font-size: 20rpx;
+
+}
+.game-comments-content{
+  margin-top: 35rpx; 
+}
+
+
+/* 分隔线--底部 */
+.line{
+    width: 90%;    /* 分隔线的长度 */
+    margin: auto;
+    height: 1px;    /* 分隔线粗细 */
+    text-align: center;
+    font-size: 24rpx;
+    color: #aaa;
+    background: #ccc;
+    margin-top: 5px;
+    margin-bottom: 22px;
+}
+.line-small{
+    width: 100%;    /* 分隔线的长度 */
+    margin: auto;
+    height: 1px;    /* 分隔线粗细 */
+    text-align: center;
+    font-size: 24rpx;
+    color:  #fff;
+    background: rgb(233, 233, 233);
+    margin-top: 5px;
+    margin-bottom: 22px;
+}
+.line span{
+    position: relative;
+    top: -8px;
+    /* background: #fff; */
+    padding: 0px 10px;
+}
+.evaluate{
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  background-color: #ccc;
+  width: 100%;
+}

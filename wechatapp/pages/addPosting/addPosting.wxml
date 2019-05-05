@@ -1,0 +1,12 @@
+<view class="container">
+  <form bindsubmit="evaSubmit">
+  <text style='font-size: 50rpx;'>{{gameTitle}}</text>
+    <button formType="submit" disabled="{{subdisabled}}" class="mini-btn" type="primary" size="mini">提交</button>
+    <view class="line-small"></view>
+    <!-- <text>评论内容</text> -->
+    <input name="evaTitle" maxlength="500" value="{{evaTitle}}" class="weui-textarea" placeholder="请输入帖子标题" bindblur="titleBlur"></input>
+    <view class='line-small'></view>
+    <textarea name="evaContent" maxlength="500" value="{{evaContent}}" class="weui-textarea" placeholder="请输入帖子内容" bindblur="textBlur" />
+
+  </form>
+</view>

@@ -1,0 +1,178 @@
+/* page ,.container{
+   width: 750rpx;
+    height: 100%;
+    overflow: hidden;
+    background: #f4f4f4;
+} */
+.navbar{
+  flex: none;
+  display: flex;
+  background: #fff;
+}
+.navbar .item{
+  position: relative;
+  flex: auto;
+  text-align: center;
+  line-height: 80rpx;
+}
+.navbar .item.active{
+  color: rgb(255, 0, 0);
+}
+.navbar .item.active:after{
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rpx;
+  background: rgb(255, 0, 0);
+
+}
+
+
+.page{
+    width: 750rpx;
+    height: 108rpx;
+    background: #fff;
+    margin-bottom: 20rpx;
+}
+
+.page view{
+    height: 108rpx;
+    width: 50%;
+    float: left;
+    /* font-size: 29rpx; */
+    color: #333;
+    text-align: center;
+    line-height: 108rpx;
+}
+
+.page .prev{
+    border-right: 1px solid #D9D9D9;
+}
+
+.page .disabled{
+    color: #ccc;
+}
+
+/* 分隔线--底部 */
+.line{
+    width: 90%;    /* 分隔线的长度 */
+    margin: auto;
+    height: 1px;    /* 分隔线粗细 */
+    text-align: center;
+    font-size: 24rpx;
+    color: #aaa;
+    background: #ccc;
+    margin-top: 5px;
+    margin-bottom: 22px;
+}
+.line-small{
+    width: 100%;    /* 分隔线的长度 */
+    margin: auto;
+    height: 1px;    /* 分隔线粗细 */
+    text-align: center;
+    font-size: 24rpx;
+    color:  #fff;
+    background: rgb(233, 233, 233);
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.line span{
+    position: relative;
+    top: -8px;
+    /* background: #fff; */
+    padding: 0px 10px;
+}
+
+
+.game-info {
+  display: flex;
+  flex-direction:column;
+  margin: 10rpx;
+
+}
+.game-community-info{
+  display: flex;
+  flex-direction:column;
+}
+.game-comments{
+  display: flex;
+}
+.game-comments-top{
+  /* flex: auto; */
+  margin-top: 30rpx;
+  
+}
+.game-comments-block{
+  /* margin-top: 10rpx; */
+  margin-bottom: 10rpx;
+  margin-left: 5rpx;
+}
+
+.game-info-text{
+  /* font-size: 50rpx; */
+  font-weight: bold;
+}
+
+.game-comments-recommend{
+  display: flex;
+  margin-bottom: 30rpx;
+}
+.game-comments-avatar{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius : 50%;
+  margin-right: 20rpx;
+  margin-left: 10rpx;
+}
+.game-comments-name{
+  display: flex;
+  flex-direction:column;
+  font-size: 10rpx;
+}
+
+.game-comments-time{
+  font-size: 20rpx;
+
+}
+.game-comments-content{
+  margin-top: 35rpx; 
+}
+
+.game-posting-com {
+  font-size: 25rpx;
+  font-weight: bold;
+  text-align:right;
+  float: right;
+  margin-top: 20rpx;
+  width: 20%;
+}
+.gameImage{
+  width : 100%;
+  background-size: cover;
+  background-attachment: fixed
+}
+.communityImage{
+  height: 200rpx;
+  width : 100%;
+  background-size: cover;
+  background-attachment: fixed
+}
+
+.add_icon{
+  position: fixed;
+  width: 100rpx;
+  height: 100rpx;
+  bottom: 150rpx;
+  right: 50rpx;
+  background-color:#ccc;
+  border-radius : 50%;
+  /* font-display: inherit */
+}
+.game-community-posting-title{
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-bottom: 15rpx;
+}

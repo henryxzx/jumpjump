@@ -1,0 +1,52 @@
+<view class="container">
+  <view class="search">
+    <navigator url="/pages/search/search" class="input">
+      <image class="icon"></image>
+      <text class="txt">游戏搜索</text>
+    </navigator>
+  </view>
+  <text style='font-size: 50rpx;font-weight: bold;'>为你推荐</text>
+  <view class="line">
+    <span>🎮</span>
+  </view>
+  <view class="flex-wrp" style="flex-direction:column;">
+    <view class="flex-item">
+      <block wx:for="{{list}}">
+        <navigator url="/pages/game/game?gameId={{item.game.gameId}}">
+          <view class='game-block'>
+            <view>
+              <image class="game-image" src='{{item.game.gameImage}}' background-size="cover"></image>
+            </view>
+            <view>
+              <text class='game-text-title'>{{item.game.gameName}}</text>
+              <view>
+                <text class='game-text-content'>{{item.game.gameType.gameTypeName}}</text>
+              </view>
+            </view>
+            <view class='game-text-rate'>
+              <text class='game-text-score'>评分:{{item.game.gameScore}}分</text>
+            </view>
+
+          </view>
+        </navigator>
+      </block>
+                <!-- <navigator url="/pages/game/game">
+          <view class='game-block'>
+              <view>
+                <image class="game-image" src='http://www.ign.xn--fiqs8s/sm/t/ign_cn/slotter/default/reddeadredemption2_7uuk.500.jpg' background-size="cover"></image>
+              </view>
+              <view>
+                <text class='game-text-title'>荒野大镖客</text>
+                <view>
+                  <text class='game-text-content'>动作游戏</text>
+                </view>
+              </view>
+              <view class='game-text-rate'>
+                <text class='game-text-score'>评分:90分</text>
+              </view>
+    
+          </view>
+          </navigator> -->
+    </view>
+  </view>
+</view>

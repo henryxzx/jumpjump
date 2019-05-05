@@ -1,0 +1,22 @@
+<view class="container">
+  <!-- <view class="profile-info">
+    <image bindtap="onUserInfoClick" class="avatar" src="{{userInfo.avatar}}"></image>
+    <view class="info">
+      <text class='name' bindtap='onUserInfoClick'>{{ userInfo.nickname || '点击登录' }}</text>
+      <!-- <text class='level' bindtap='onUserInfoClick'></text> -->
+    <!-- </view>
+    <image bindtap="onUserInfoClick" class='btn'
+    src='/static/images/address_right.png'></image> -->
+  <!-- </view> -->
+     <view class='content'>
+        <view>申请获取以下权限</view>
+        <text>获得你的公开信息(昵称，头像等)</text>
+    </view>
+
+    <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+        授权登录
+    </button>
+</view>
+
+  <!-- <view class="logout" bindtap="exitLogin">退出登录</view> -->
+<!-- </view> -->

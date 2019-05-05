@@ -1,0 +1,11 @@
+<view class="container">
+  <form bindsubmit="evaSubmit">
+  <text style='font-size: 50rpx;'>{{gameCommunityPostingTitle}}</text>
+    <button formType="submit" disabled="{{subdisabled}}" class="mini-btn" type="primary" size="mini">提交</button>
+    <view class="line-small"></view>
+    <!-- <text>评论内容</text> -->
+
+    <textarea name="evaContent" maxlength="500" value="{{evaContent}}" class="weui-textarea" placeholder="请输入评论内容" bindblur="textBlur" />
+
+  </form>
+</view>

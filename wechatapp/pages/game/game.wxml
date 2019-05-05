@@ -1,0 +1,85 @@
+<view class="container">
+  <view class="navbar">
+    <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+  </view>
+</view>
+<view hidden="{{currentTab!==0}}">
+  <!-- <block wx:for="{{list}}"> -->
+  <view class='game-info'>
+    <image src='{{gameImage}}' class='gameImage'></image>
+    <view class="line">
+      <span>🎮</span>
+    </view>
+    <text class='game-info-text'>{{gameTitle}}</text>
+    <text>{{gamePublishTime}}/{{gamePublisherName}}/{{gameTypeName}}</text>
+    <view class="line-small"></view>
+    <text>{{gameContent}}</text>
+    <view class="line-small"></view>
+    <text>游戏评分：{{gameScore}}</text>
+  </view>
+  <!-- </block> -->
+</view>
+<!-- 评测页面 -->
+<view hidden="{{currentTab!==1}}">
+  <view class='game-comments-top'>
+    <view style='text-align:center;'>
+      <text>- 你是否推荐这款游戏?</text>
+    </view>
+
+    <view class='game-comments-recommend'>
+
+      <button bindtap='recommend'>👍 推荐</button>
+      <button bindtap='norecommend'>👎 不推荐</button>
+    </view>
+
+    <view class="line"></view>
+
+  </view>
+  <text> 💬 玩家评测()</text>
+  <view class="line-small"></view>
+  <block wx:for="{{list}}">
+    <view class='game-comments-block'>
+      <view class='game-comments'>
+        <image src='{{item.user.uAvatarUrl}}' class='game-comments-avatar'></image>
+        <view class='game-comments-name'>
+          <text>{{item.user.uNickName}}</text>
+          <text class='game-comments-time'>{{item.commentsTime}}</text>
+        </view>
+      </view>
+      <text class='game-comments-content'>{{item.commentsContent}}</text>
+      <view class="line-small"></view>
+    </view>
+  </block>
+</view>
+<!-- 社区页面 -->
+<view hidden="{{currentTab!==2}}">
+  <view class='game-community-info'>
+    <image src='{{gameCommunityImage}}' class='communityImage'></image>
+    <view class="line">
+      <span>🎮</span>
+    </view>
+  </view>
+
+  <text> 📖 帖子</text>
+
+  <view class="line-small"></view>
+  <block wx:for="{{listPosting}}">
+    <navigator url='/pages/posting/posting?gameCommunityPostingId={{item.gameCommunityPostingId}}'>
+      <view class='game-comments-block'>
+        <text class='game-community-posting-title'>{{item.gameCommunityPostingTitle}}</text>
+        <view class='game-comments'>
+          <image src='{{item.user.uAvatarUrl}}' class='game-comments-avatar'></image>
+          <view class='game-comments-name'>
+            <text>{{item.user.uNickName}}</text>
+            <text class='game-comments-time'>{{item.gameCommunityPostingTime}}</text>
+          </view>
+          <text class='game-posting-com'>评论 {{item.gameCommunityPostingEvaluateNum}}</text>
+        </view>
+        <view class="line-small"></view>
+      </view>
+    </navigator>
+  </block>
+  <view bindtap='addPosting'>
+    <image class='add_icon' src='/static/images/icon_collect.png'></image>
+  </view>
+</view>

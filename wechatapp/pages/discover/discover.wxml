@@ -1,0 +1,122 @@
+<view class="container">
+  <!-- <view class="search">
+    <navigator url="/pages/search/search" class="input">
+      <image class="icon"></image>
+      <text class="txt">游戏搜索</text>
+    </navigator>
+  </view> -->
+    <!-- tab导航栏 -->
+    <!-- scroll-left属性可以控制滚动条位置 -->
+    <!-- scroll-with-animation滚动添加动画过渡 -->
+      <view class="search">
+    <navigator url="/pages/search/search" class="input">
+      <image class="icon"></image>
+      <text class="txt">游戏搜索</text>
+    </navigator>
+  </view>
+    <scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+        <block wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+            <view class="nav-item {{currentTab == idx ?'active':''}}"  data-current="{{idx}}" bindtap="switchNav">{{navItem.text}}</view>
+        </block>     
+    </scroll-view>
+    
+    <!-- 页面内容 -->
+    <swiper class="tab-box" current="{{currentTab}}" duration="300" bindchange="switchTab">   
+        <swiper-item wx:for="{{[0,1,2,3,4,5,6,7,8]}}" wx:for-item="tabItem" wx:for-index="idx" wx:key="idx" class="tab-content">
+            {{tabItem}}
+        </swiper-item>
+    </swiper>
+        <view class="flex-wrp" style="flex-direction:column;">
+        <view class="flex-item">
+        <block wx:for="{{list}}">
+        <navigator url="/pages/game/game?gameId={{item.gameId}}">
+          <view class='game-block'>
+              <view>
+                <image class="game-image" src='{{item.gameImage}}' background-size="cover"></image>
+              </view>
+              <view>
+                <text class='game-text-title'>{{item.gameName}}</text>
+                <view>
+                  <text class='game-text-content'>{{item.gameType.gameTypeName}}</text>
+                </view>
+              </view>
+              <view class='game-text-rate'>
+                <text class='game-text-score'>评分:{{item.gameScore}}分</text>
+              </view>
+    
+          </view>
+          </navigator>
+        </block>
+          <navigator url="/pages/game/game">
+          <view class='game-block'>
+              <view>
+                <image class="game-image" src='3.jpg' background-size="cover"></image>
+              </view>
+              <view>
+                <text class='game-text-title'>游戏标题</text>
+                <view>
+                  <text class='game-text-content'>游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍戏介绍</text>
+                </view>
+              </view>
+              <view class='game-text-rate'>
+                <text class='game-text-score'>评分:5分</text>
+              </view>
+    
+          </view>
+          </navigator>
+                    <navigator url="/pages/game/game">
+          <view class='game-block'>
+              <view>
+                <image class="game-image" src='3.jpg' background-size="cover"></image>
+              </view>
+              <view>
+                <text class='game-text-title'>游戏标题</text>
+                <view>
+                  <text class='game-text-content'>游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍戏介绍</text>
+                </view>
+              </view>
+              <view class='game-text-rate'>
+                <text class='game-text-score'>评分:5分</text>
+              </view>
+    
+          </view>
+          </navigator>
+                    <navigator url="/pages/game/game">
+          <view class='game-block'>
+              <view>
+                <image class="game-image" src='3.jpg' background-size="cover"></image>
+              </view>
+              <view>
+                <text class='game-text-title'>游戏标题</text>
+                <view>
+                  <text class='game-text-content'>游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍戏介绍</text>
+                </view>
+              </view>
+              <view class='game-text-rate'>
+                <text class='game-text-score'>评分:5分</text>
+              </view>
+    
+          </view>
+          </navigator>
+                    <navigator url="/pages/game/game">
+          <view class='game-block'>
+              <view>
+                <image class="game-image" src='3.jpg' background-size="cover"></image>
+              </view>
+              <view>
+                <text class='game-text-title'>游戏标题</text>
+                <view>
+                  <text class='game-text-content'>游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍戏介绍</text>
+                </view>
+              </view>
+              <view class='game-text-rate'>
+                <text class='game-text-score'>评分:5分</text>
+              </view>
+    
+          </view>
+          </navigator>
+
+          
+        </view>
+      </view>
+</view>

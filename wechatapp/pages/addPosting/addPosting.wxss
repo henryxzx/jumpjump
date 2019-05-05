@@ -1,0 +1,57 @@
+page {
+  height: 100%;
+}
+
+.container {
+  background: #f9f9f9;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 分隔线--底部 */
+.line{
+    width: 90%;    /* 分隔线的长度 */
+    margin: auto;
+    height: 1px;    /* 分隔线粗细 */
+    text-align: center;
+    font-size: 24rpx;
+    color: #aaa;
+    background: #ccc;
+    margin-top: 5px;
+    margin-bottom: 22px;
+}
+.line span{
+    position: relative;
+    top: -8px;
+    /* background: #fff; */
+    padding: 0px 10px;
+}
+.line-small{
+    width: 100%;    /* 分隔线的长度 */
+    margin: auto;
+    height: 1px;    /* 分隔线粗细 */
+    text-align: center;
+    font-size: 24rpx;
+    color:  #fff;
+    background: rgb(233, 233, 233);
+    margin-top: 5px;
+    margin-bottom: 22px;
+}
+.line span{
+    position: relative;
+    top: -8px;
+    /* background: #fff; */
+    padding: 0px 10px;
+}
+.mini-btn{
+  flex-direction: row;
+  margin-top: 10rpx;
+  float: right;
+  margin-right: 10rpx;
+}
+.weui-textarea{
+  width: 100%;
+  margin:20rpx; 
+}

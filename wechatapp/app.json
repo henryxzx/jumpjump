@@ -1,0 +1,60 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/user/user",
+    "pages/logs/logs",
+    "pages/discover/discover",
+    "pages/recommend/recommend",
+    "pages/ucenter/index/index",
+    "pages/search/search",
+    "pages/game/game",
+    "pages/posting/posting",
+    "pages/comments/comments",
+    "pages/addPosting/addPosting",
+    "pages/addPostingEvaluate/addPostingEvaluate"
+  ],
+"window": {
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "Jump游戏推荐",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#FF0000",
+  "enablePullDownRefresh": true
+},
+"tabBar": {
+  "backgroundColor": "#fafafa",
+  "borderStyle": "white",
+  "selectedColor": "#b4282d",
+  "color": "#666",
+  "list": [
+    {
+      "pagePath": "pages/index/index",
+      "iconPath": "static/images/ic_menu_choice_nor.png",
+      "selectedIconPath": "static/images/ic_menu_choice_pressed.png",
+      "text": "游戏推荐"
+    },
+    {
+      "pagePath": "pages/discover/discover",
+      "iconPath": "static/images/ic_menu_topic_nor.png",
+      "selectedIconPath": "static/images/ic_menu_topic_pressed.png",
+      "text": "发现游戏"
+    },
+    {
+      "pagePath": "pages/recommend/recommend",
+      "iconPath": "static/images/ic_menu_sort_nor.png",
+      "selectedIconPath": "static/images/ic_menu_sort_pressed.png",
+      "text": "为你推荐"
+    },
+    {
+      "pagePath": "pages/user/user",
+      "iconPath": "static/images/ic_menu_me_nor.png",
+      "selectedIconPath": "static/images/ic_menu_me_pressed.png",
+      "text": "我的"
+    }
+  ]
+},
+"networkTimeout": {
+  "request": 50000,
+  "downloadFile": 10000
+},
+"debug": true
+}

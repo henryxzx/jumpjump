@@ -8,12 +8,13 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.3.0",
-	"appid": "wxa51de0d2f88165e5",
-	"projectname": "AreaDemo",
+	"libVersion": "2.5.0",
+	"appid": "wxe441ec2425d06167",
+	"projectname": "wechatapp",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

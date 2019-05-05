@@ -1,0 +1,185 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="search">
+    <navigator url="/pages/search/search" class="input">
+      <image class="icon"></image>
+      <text class="txt">游戏搜索</text>
+    </navigator>
+  </view>
+  <view class="navbar">
+    <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+  </view>
+
+  <!--最热游戏-->
+  <view hidden="{{currentTab!==0}}">
+    <view class="section">
+      <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+        <!-- <image src="1.jpg" background-size="cover"></image> -->
+        <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
+          <navigator>
+            <image src="{{item.url}}" background-size="cover"></image>
+          </navigator>
+        </swiper-item>
+      </swiper>
+      <view class="flex-wrp" style="flex-direction:column;">
+        <view class="flex-item">
+        <block wx:for="{{list}}">
+        <navigator url="/pages/game/game?gameId={{item.gameId}}">
+          <view class='game-block'>
+              <view>
+                <image class="game-image" src='{{item.gameImage}}' background-size="cover"></image>
+              </view>
+              <view>
+                <text class='game-text-title'>{{item.gameName}}</text>
+                <view>
+                  <text class='game-text-content'>{{item.gameType.gameTypeName}}</text>
+                </view>
+              </view>
+              <view class='game-text-rate'>
+                <text class='game-text-score'>评分:{{item.gameScore}}分</text>
+              </view>
+    
+          </view>
+          </navigator>
+        </block>
+          <navigator url="/pages/game/game">
+          <view class='game-block'>
+              <view>
+                <image class="game-image" src='3.jpg' background-size="cover"></image>
+              </view>
+              <view>
+                <text class='game-text-title'>游戏标题</text>
+                <view>
+                  <text class='game-text-content'>游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍戏介绍</text>
+                </view>
+              </view>
+              <view class='game-text-rate'>
+                <text class='game-text-score'>评分:5分</text>
+              </view>
+    
+          </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--最新游戏-->
+  <view hidden="{{currentTab!==1}}">
+    <view class="section">
+      <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+        <!-- <image src="1.jpg" background-size="cover"></image> -->
+        <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
+          <navigator>
+            <image src="{{item.url}}" background-size="cover"></image>
+          </navigator>
+        </swiper-item>
+      </swiper>
+      <view class="flex-wrp" style="flex-direction:column;">
+        <view class="flex-item">
+        <block wx:for="{{list}}">
+        <navigator url="/pages/game/game?gameId={{item.gameId}}">
+          <view class='game-block'>
+              <view>
+                <image class="game-image" src='{{item.gameImage}}' background-size="cover"></image>
+              </view>
+              <view>
+                <text class='game-text-title'>{{item.gameName}}</text>
+                <view>
+                  <text class='game-text-content'>{{item.gameType.gameTypeName}}</text>
+                </view>
+              </view>
+              <view class='game-text-rate'>
+                <text class='game-text-score'>评分:{{item.gameScore}}分</text>
+              </view>
+    
+          </view>
+          </navigator>
+        </block>
+          <navigator url="/pages/game/game">
+          <view class='game-block'>
+              <view>
+                <image class="game-image" src='http://www.ign.xn--fiqs8s/sm/t/ign_cn/slotter/default/reddeadredemption2_7uuk.500.jpg' background-size="cover"></image>
+              </view>
+              <view>
+                <text class='game-text-title'>游戏标题</text>
+                <view>
+                  <text class='game-text-content'>游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍戏介绍</text>
+                </view>
+              </view>
+              <view class='game-text-rate'>
+                <text class='game-text-score'>评分:5分</text>
+              </view>
+    
+          </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 评分最高游戏 -->
+    <view hidden="{{currentTab!==2}}">
+    <view class="section">
+      <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+        <!-- <image src="1.jpg" background-size="cover"></image> -->
+        <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
+          <navigator>
+            <image src="{{item.url}}" background-size="cover"></image>
+          </navigator>
+        </swiper-item>
+      </swiper>
+      <view class="flex-wrp" style="flex-direction:column;">
+        <view class="flex-item">
+        <block wx:for="{{list}}">
+        <navigator url="/pages/game/game?gameId={{item.gameId}}">
+          <view class='game-block'>
+              <view>
+                <image class="game-image" src='{{item.gameImage}}' background-size="cover"></image>
+              </view>
+              <view>
+                <text class='game-text-title'>{{item.gameName}}</text>
+                <view>
+                  <text class='game-text-content'>{{item.gameType.gameTypeName}}</text>
+                </view>
+              </view>
+              <view class='game-text-rate'>
+                <text class='game-text-score'>评分:{{item.gameScore}}分</text>
+              </view>
+    
+          </view>
+          </navigator>
+        </block>
+          <navigator url="/pages/game/game">
+          <view class='game-block'>
+              <view>
+                <image class="game-image" src='http://www.ign.xn--fiqs8s/sm/t/ign_cn/slotter/default/reddeadredemption2_7uuk.500.jpg' background-size="cover"></image>
+              </view>
+              <view>
+                <text class='game-text-title'>游戏标题</text>
+                <view>
+                  <text class='game-text-content'>游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍戏介绍</text>
+                </view>
+              </view>
+              <view class='game-text-rate'>
+                <text class='game-text-score'>评分:5分</text>
+              </view>
+    
+          </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <!--今日推荐-->
+  <view hidden="{{currentTab!==3}}">
+    <view class='flex-item'>
+      <view class='recommend-image'>
+        <image class='image-block' src='3.jpg' mode='scaleToFill'></image>
+        <text>评测评测评测评测评测评测</text>
+      </view>
+    </view>
+  </view>
+</view>

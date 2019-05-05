@@ -1,0 +1,30 @@
+<view class='game-comments-block'>
+  <text style='font-size:50rpx'>{{gameCommunityPostingTitle}}</text>
+  <view class='game-comments'>
+    <image src='{{uAvatarUrl}}' class='game-comments-avatar'></image>
+    <view class='game-comments-name'>
+      <text>{{uNickName}}</text>
+      <text class='game-comments-time'>{{gameCommunityPostingTime}}</text>
+    </view>
+  </view>
+  <!-- <view class="line-small"></view> -->
+  <view>{{gameCommunityPostingContent}}</view>
+  <view class="line-small"></view>
+</view>
+<text> 💬 评论(xx)</text>
+<view class="line-small"></view>
+<block wx:for="{{list}}">
+  <view class='game-comments-block'>
+    <view class='game-comments'>
+      <image src='{{item.user.uAvatarUrl}}' class='game-comments-avatar'></image>
+      <view class='game-comments-name'>
+        <text>{{item.user.uNickName}}</text>
+        <text class='game-comments-time'>{{item.gameCommunityPostingEvaluateTime}}</text>
+      </view>
+    </view>
+    <text class='game-comments-content'>{{item.gameCommunityPostingEvaluateConetent}}</text>
+    <view class="line-small"></view>
+
+</view>
+</block>
+<view class='evaluate' bindtap='addEvaluate'>✍️点击回复帖子</view>

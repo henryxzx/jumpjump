@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="search">
+    <navigator url="/pages/search/search" class="input">
+      <image class="icon"></image>
+      <text class="txt">游戏搜索</text>
+    </navigator>
+  </view>
+  <text style='font-size: 50rpx;font-weight: bold;'>最热社区</text>
+  <view class="line">
+  <span>🎮</span>
+  </view>
+  <view class='community-block'>
+    <image src='3.jpg' class='community-image'></image>
+    <text class='community-title'>社区标题</text>
+  </view>
+
+    <view class='community-block'>
+    <image src='3.jpg' class='community-image'></image>
+    <text class='community-title'>社区标题</text>
+  </view>
+    <view class='community-block'>
+    <image src='3.jpg' class='community-image'></image>
+    <text class='community-title'>社区标题</text>
+  </view>
+    <view class='community-block'>
+    <image src='3.jpg' class='community-image'></image>
+    <text class='community-title'>社区标题</text>
+  </view>
+
+</view>

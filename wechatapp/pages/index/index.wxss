@@ -1,0 +1,135 @@
+.banner {
+  width: 750rpx;
+  height: 200rpx;
+  /* margin: 10rpx; */
+  /* border-radius: 70%; */
+}
+
+.banner image {
+  width: 100%;
+  height: 200rpx;
+}
+
+.search {
+  height: 88rpx;
+  width: 100%;
+  padding: 0 30rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.search .input {
+  width: 690rpx;
+  height: 56rpx;
+  background: #ededed;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search .icon {
+  background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/search2-2fb94833aa.png) center no-repeat;
+  background-size: 100%;
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.search .txt {
+  height: 42rpx;
+  line-height: 42rpx;
+  color: #666;
+  padding-left: 10rpx;
+  font-size: 30rpx;
+}
+
+
+.navbar{
+  flex: none;
+  display: flex;
+  background: #fff;
+}
+.navbar .item{
+  position: relative;
+  flex: auto;
+  text-align: center;
+  line-height: 80rpx;
+}
+.navbar .item.active{
+  color: rgb(255, 0, 0);
+}
+.navbar .item.active:after{
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rpx;
+  background: rgb(255, 0, 0);
+
+}
+
+.page-section{
+  margin-bottom: 20rpx;
+}
+.flex-wrp {display: flex;background-color: ghostwhite}
+
+.flex-item{
+  width: 100%;
+  margin-top: 10px;
+}
+.game-block {display:flex;flex-direction:row;background:white;
+ width:100%;
+ height: 100px;margin-top: 10px;}
+
+.image-block {
+  display:flex;
+  flex-direction:row;
+  background:white;
+  width:100%;
+  height: 100px;
+  margin-top: 5px;
+}
+.top{
+  position:fixed; top:0;width: 750rpx;
+}
+.game-image{
+  height: 170rpx;
+  width: 190rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.game-text-title{
+  float: right;
+  font-size: 30rpx;
+  font-weight: bold;
+  /* margin-left: 30rpx; */
+  width : 400rpx;
+  margin-top: 20rpx;
+  margin-left: 15rpx;
+}
+
+.game-text-score{
+  font-size: 30rpx;
+  font-weight: bold;
+  text-align:right;
+  float: right;
+  margin-top: 20rpx;
+}
+.game-text-content{
+  font-size: 25rpx;
+  /* word-wrap:break-word; */
+  word-break: normal;
+  margin-left: 15rpx;
+}
+
+.game-text-rate {
+  width: 30%;
+}
+
+
+.recommend-image {
+  height: 300rpx;
+  width: 100%;
+}
